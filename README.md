@@ -12,7 +12,7 @@ MATLAB
 
 Installation
 ===
-Drag the files to your MATLAB folder, or browse to the path after download or cloning.  The 'nachtlied.txt' excerpt is included so the use algorithms may be tested.
+Drag the files to your MATLAB folder, or browse to the path after download or cloning.  The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.
 
  
 License
