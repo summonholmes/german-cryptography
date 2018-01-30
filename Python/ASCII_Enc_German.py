@@ -21,7 +21,5 @@ def ASCII_Enc_German(x):
         else:
             y.append(xp)
             j = j + 1
+            
     return y
-
-
-

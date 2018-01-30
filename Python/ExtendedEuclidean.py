@@ -6,6 +6,7 @@ def ExtendedEuclidean(a, b):
     y0 = 0
     y1 = 1
     z = [r0, x0, y0]
+
     while r1 > 0:
         r = r0 % r1
         q = (r0 - r) / r1
@@ -18,4 +19,5 @@ def ExtendedEuclidean(a, b):
         y1 = y
         r0 = r1
         r1 = r
+
     return z

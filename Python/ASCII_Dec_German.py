@@ -21,4 +21,5 @@ def ASCII_Dec_German(x):
         else:
             y.append(xp)
             j = j + 1
+
     return y

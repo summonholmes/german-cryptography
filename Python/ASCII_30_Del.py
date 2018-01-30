@@ -22,4 +22,5 @@ def ASCII_30_Del(x):
         else:
             y.append(xp)
             j = j + 1
+            
     return y

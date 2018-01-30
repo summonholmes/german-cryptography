@@ -6,4 +6,5 @@ def DecryptAffine_German(x, a, b):
     
     for i in range(len(x)):
         y.append(((int(z[2]) * (x[i] - 65) - b * int(z[2])) % 30) + 97)
+        
     return y
