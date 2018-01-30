@@ -4,16 +4,28 @@ Guten Tag!  Here is a process for performing the classical cryptographic algorit
 
 The process utilizes some additional operations to substitute these characters since ASCII is the default character set.  In ASCII, these foreign chracters do not fall within the 65-90 or 97-122 decimal range.  
 
-The algorithms work by substituting the German characters with the actual ASCII characters to the ends of these English ASCII ranges temporarily, performing the algorithm, then substituting the German characters back in place.
+The algorithms work by substituting the German characters with the actual ASCII characters to the ends of these English ASCII ranges temporarily, performing the algorithm, then substituting the German characters back in place.  
+
+The MATLAB and Python implementations contain many similarities and differences, due to the inherent properties of the languages.
+
+The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  
 
 Dependencies
 ===
-MATLAB  
+MATLAB and/or Python 3+
 
 Installation
 ===
-Drag the files to your MATLAB folder, or browse to the path after download or cloning.  The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.
+*MATLAB*  
+Drag the files to your MATLAB folder, or browse to the path after download or cloning.  Then select a cipher to run, such as Shift_German.
 
+*Python 3+*  
+Choose a cipher to run from the command line or IDE.  
+
+Example:
+```
+$ /path/to/python/Shift_German.py
+```
  
 License
 ===
