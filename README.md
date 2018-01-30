@@ -13,6 +13,7 @@ The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche i
 Dependencies
 ===
 MATLAB and/or Python 3+
+* Python 3 Requires numpy.  
 
 Installation
 ===
