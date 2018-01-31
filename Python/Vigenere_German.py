@@ -1,4 +1,4 @@
-# Affine cipher for the German alphabet
+# Vigenere cipher for the German alphabet
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
