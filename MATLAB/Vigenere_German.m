@@ -1,4 +1,4 @@
-% Affine cipher for the German alphabet
+% Vigenere cipher for the German alphabet
 fd=fopen('nachtlied.txt','r');
 x=fread(fd);
 fclose(fd);
