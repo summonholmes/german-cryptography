@@ -21,7 +21,6 @@ plaintext_ascii_pre = [ord(c) for c in plaintext]
 plaintext_ascii = []
 for i in range(len(plaintext_ascii_pre)):
     plaintext_ascii.append(plaintext_ascii_pre[i] - 97)
-plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
 [K, K_1, i] = Generate(8, 30)
 ciphertext_ascii_30_pre = Hill_German(plaintext_ascii, K, 30)

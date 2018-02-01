@@ -8,7 +8,7 @@ from ExtendedEuclidean import ExtendedEuclidean
 def ModMatInv(A, m):
     n = len(A)
     X = numpy.append(A, identity(n), axis=1)
-    d = ((linalg.det(A)) % m)
+    d = round(linalg.det(A) % m)
     x1 = ExtendedEuclidean(m, d)
     
     if x1[0] != 1:
@@ -18,26 +18,26 @@ def ModMatInv(A, m):
     for i in range(n):
         x = X[i][i]
         x1 = ExtendedEuclidean(m, x)
-        ii = i 
+        ii = i
+
+        while x1[0] != 1 and ii < (n-1):
+            ii = ii + 1
+            x = ((X[ii][i] + X[i][i]) % m)
+            x1 = ExtendedEuclidean(m, x)
         
-    while x1[0] != 1 and ii < n:
-        ii = ii + 1
-        x = ((X[ii][i] + X[i][i]) % m)
-        x1 = ExtendedEuclidean(m, x)
+        if x1[0] != 1:
+            B = zeros((n, n))
+            return B
+        
+        if ii != i:
+            X[i, :] = ((X[i, :] + X[ii, :]) % m)
+        X[i, :] = ((x1[2] * X[i, :]) % m)
 
-    if x1[0] != 1:
-        B = zeros((n, n))
-        return B
+        for j in range(n):
+            if j != i:
+                x = X[j][i]
+                X[j, :] = ((X[j, :] - x * X[i, :]) % m)
 
-    if ii != i:
-        X[i, :] = ((X[i, :] + X[ii, :]) % m)
-
-    X[i, :] = ((x1[2] * X[i, :]) % m)
-    for j in range(n):
-        if j != i:
-            x = X[j][i]
-            X[j, :] = ((X[j, :] - x * X[i, :]) % m)
-    
-    B = X[:, (n + 1) : (2 * n)]
+    B = X[:, n : (2 * n)]
 
     return B
