@@ -1,4 +1,3 @@
-# DO NOT USE!  IN PROGRESS.
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
@@ -15,18 +14,16 @@ x = f.read()
 f.close()
 
 plaintext = PreProcess_German(x)
-plaintext_ascii_pre = [ord(c) for c in plaintext]
-plaintext_ascii = [(i - 97) for i in plaintext_ascii_pre]
+plaintext_ascii = [ord(c) for c in plaintext]
+plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
 [K, K_1, i] = Generate(8, 30)
-ciphertext_ascii_30_pre = Hill_German(plaintext_ascii, K, 30)
-ciphertext_ascii_30 = [(i + 65) for i in ciphertext_ascii_30_pre]
-ciphertext_ascii = ASCII_Enc_German(ciphertext_ascii_30)
-ciphertext_ascii_30 = ASCII_Dec_German(ciphertext_ascii_30)
+ciphertext_ascii_30 = Hill_German([(i - 97) for i in plaintext_ascii_30], K, 30)
+ciphertext_ascii = ASCII_Enc_German([(i + 65) for i in ciphertext_ascii_30])
+ciphertext_ascii_30 = ASCII_Dec_German(ciphertext_ascii)
 
-dectext_ascii_30_pre = Hill_German(ciphertext_ascii, K_1, 30)
-dectext_ascii_30 = [(i + 97) for i in dectext_ascii_30_pre]
-dectext_ascii = ASCII_30_Del(dectext_ascii_30)
+dectext_ascii_30 = Hill_German(ciphertext_ascii_30, K_1, 30)
+dectext_ascii = ASCII_30_Del([(i + 97) for i in dectext_ascii_30])
 
 ciphertext = ''.join(chr(i) for i in ciphertext_ascii)
 dectext = ''.join(chr(i) for i in dectext_ascii)

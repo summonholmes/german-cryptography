@@ -1,13 +1,13 @@
-import numpy
 from numpy import identity, linalg, zeros
 from ExtendedEuclidean import ExtendedEuclidean
+from numpy import append as np_append
 # This function computes the inverse of a matrix in Zm using row-operations
 # Inputs: A is an nxn matrix in Zm, m: modulus.
 # Output: B is the inverse of A in Zm.
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 def ModMatInv(A, m):
     n = len(A)
-    X = numpy.append(A, identity(n), axis=1)
+    X = np_append(A, identity(n), axis=1)
     d = round(linalg.det(A) % m)
     x1 = ExtendedEuclidean(m, d)
     
