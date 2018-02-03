@@ -1,5 +1,5 @@
 from math import ceil
-from numpy import zeros, reshape, transpose, dot
+from numpy import zeros, reshape, transpose, dot, array
 from numpy import append as np_append
 
 def Hill_German(x, k, m):
@@ -9,10 +9,9 @@ def Hill_German(x, k, m):
     z = zeros((1, l * n - nx))
     z = np_append(x, z)
     l = int(len(z) / n)
-    z = reshape(z, (n, l))
-    y = dot(transpose(z), k) % m
+    z = z.reshape(n, l, order='F').copy()
+    y = dot(z.T, k) % m
     l = l * n
-    y = reshape(transpose(y), (1, l))
-    y1 = [int(i) for i in transpose(y)]
+    y = y.T.reshape(1, l, order='F').copy()
     
-    return y1
+    return [int(i) for i in array(y)[0].tolist()]

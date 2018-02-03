@@ -8,7 +8,7 @@ from numpy import append as np_append
 def ModMatInv(A, m):
     n = len(A)
     X = np_append(A, identity(n), axis=1)
-    d = round(linalg.det(A) % m)
+    d = round(linalg.det(A)) % m
     x1 = ExtendedEuclidean(m, d)
     
     if x1[0] != 1:
