@@ -1,8 +1,4 @@
 def EncryptSubstitution_German(x, k):
-    y = []
-
-    for i in range(len(x)):
-        xp = x[i] - 97
-        y.append(k[xp] - 32)
+    y = [(k[i - 97] - 32) for i in x]
 
     return y
