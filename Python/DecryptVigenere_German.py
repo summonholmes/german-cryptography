@@ -1,11 +1,8 @@
 def DecryptVigenere_German(x, k):
     y = []
-    k1 = []
     plaintext_ascii = [ord(c) for c in k]
+    k1 = [(i - 97) for i in plaintext_ascii]
 
-    for i in range(len(plaintext_ascii)):
-        k1.append(plaintext_ascii[i] - 97)
-    
     n = len(x)
     m = len(k)
 
