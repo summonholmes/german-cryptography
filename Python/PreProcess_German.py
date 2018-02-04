@@ -4,4 +4,5 @@ def PreProcess_German(x):
     y = ''.join(x.split())
     y = sub(r'[^\w\s]','',y)
     y = y.lower()
+
     return y

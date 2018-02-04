@@ -1,5 +1,4 @@
 # Shift cipher for the German alphabet
-# Nightsong by Friedrich Nietzsche
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
