@@ -22,7 +22,7 @@ plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
 ciphertext_ascii_30 = Hill_German([(i - 97) for i in plaintext_ascii_30], K, 30)
 ciphertext_ascii = ASCII_Enc_German([(i + 65) for i in ciphertext_ascii_30])
-ciphertext_ascii_30_1 = ASCII_Dec_German(ciphertext_ascii)
+# ciphertext_ascii_30_1 = ASCII_Dec_German(ciphertext_ascii)
 
 dectext_ascii_30 = Hill_German(ciphertext_ascii_30, K_1, 30)
 dectext_ascii = ASCII_30_Del([(i + 97) for i in dectext_ascii_30])
