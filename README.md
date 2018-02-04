@@ -18,7 +18,7 @@ MATLAB and/or Python 3+
 Installation
 ===
 *MATLAB*  
-Drag the files to your MATLAB folder, or browse to the path after download or cloning.  Then select a cipher to run, such as Shift_German.
+Drag the files to your MATLAB folder, or browse to the path after download or cloning.  Then select a cipher to run, such as Shift_German.m.
 
 *Python 3+*  
 Choose a cipher to run from the command line or IDE.  
