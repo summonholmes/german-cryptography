@@ -1,6 +1,5 @@
 from math import ceil
-from numpy import zeros, reshape, transpose, dot, array
-from numpy import append as np_append
+from numpy import zeros, reshape, dot, array, append as np_append
 
 
 def Hill_German(x, k, m):
