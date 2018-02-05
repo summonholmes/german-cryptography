@@ -6,7 +6,6 @@ from ASCII_30_Add import ASCII_30_Add
 from ASCII_30_Del import ASCII_30_Del
 from EnDeHill_German import Hill_German
 from Generate import Generate
-from numpy import matrix
 
 # Hill cipher for the German Alphabet
 
