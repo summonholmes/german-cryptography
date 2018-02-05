@@ -1,12 +1,5 @@
 def DecryptSubstitution_German(x, k):
-    k1 = [(i - 97) for i in k]
-    k2 = [(i + 97) for i in range(len(k))]
-    y = []
+    k1 = list(zip([(i - 97) for i in k], [(i + 97) for i in range(len(k))]))
+    y = [j[:][1] for i in x for j in k1 if (i - 65) == j[:][0]]
     
-    for i in range(len(x)):
-        xp = x[i] - 65
-        for j in range(len(k)):
-            if xp == k1[j]:
-                y.append(k2[j])
-
     return y
