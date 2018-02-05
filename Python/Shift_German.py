@@ -12,7 +12,7 @@ f = open("nachtlied.txt", 'r', 'iso-8859-1')
 x = f.read()
 f.close()
 
-k = 23 # Magnitude of shift
+k = 23  # Magnitude of shift
 
 plaintext = PreProcess_German(x)
 plaintext_ascii = [ord(c) for c in plaintext]

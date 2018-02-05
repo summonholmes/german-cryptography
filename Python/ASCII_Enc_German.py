@@ -3,8 +3,8 @@ def ASCII_Enc_German(x):
     n = len(x)
     j = 0
     y = []
-    
-    for i in range(j,n):
+
+    for i in range(j, n):
         xp = x[i]
         if xp == 91:
             y.append(196)
@@ -21,5 +21,5 @@ def ASCII_Enc_German(x):
         else:
             y.append(xp)
             j = j + 1
-            
+
     return y

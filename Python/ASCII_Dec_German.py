@@ -3,8 +3,8 @@ def ASCII_Dec_German(x):
     n = len(x)
     j = 0
     y = []
-    
-    for i in range(j,n):
+
+    for i in range(j, n):
         xp = x[i]
         if xp == 196:
             y.append(91)

@@ -4,8 +4,8 @@ def ASCII_30_Del(x):
     n = len(x)
     j = 0
     y = []
-    
-    for i in range(j,n):
+
+    for i in range(j, n):
         xp = x[i]
         if xp == 123:
             y.append(228)
@@ -22,5 +22,5 @@ def ASCII_30_Del(x):
         else:
             y.append(xp)
             j = j + 1
-            
+
     return y

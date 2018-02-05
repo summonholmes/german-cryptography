@@ -3,8 +3,8 @@ def ASCII_30_Add(x):
     n = len(x)
     j = 0
     y = []
-    
-    for i in range(j,n):
+
+    for i in range(j, n):
         xp = x[i]
         if xp == 228:
             y.append(123)
@@ -21,5 +21,5 @@ def ASCII_30_Add(x):
         else:
             y.append(xp)
             j = j + 1
-            
+
     return y

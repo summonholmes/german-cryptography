@@ -2,6 +2,7 @@ from math import ceil
 from numpy import zeros, reshape, transpose, dot, array
 from numpy import append as np_append
 
+
 def Hill_German(x, k, m):
     n = len(k)
     nx = len(x)
@@ -13,5 +14,5 @@ def Hill_German(x, k, m):
     y = dot(z.T, k) % m
     l = l * n
     y = y.T.reshape(1, l, order='F').copy()
-    
+
     return [int(i) for i in array(y)[0].tolist()]
