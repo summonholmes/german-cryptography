@@ -4,8 +4,7 @@
 #Outputs: K: nxn invertable matrix in Zm, K_1: inverse of K, and i: number
 #of attempts until the first success
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-from numpy import random, zeros, array_equal
-from numpy import round as np_round
+from numpy import random, zeros, array_equal, round as np_round
 from ModMatInv import ModMatInv
 
 def Generate(n, m):

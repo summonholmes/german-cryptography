@@ -1,6 +1,5 @@
-from numpy import identity, linalg, zeros
+from numpy import identity, linalg, zeros, append as np_append
 from ExtendedEuclidean import ExtendedEuclidean
-from numpy import append as np_append
 # This function computes the inverse of a matrix in Zm using row-operations
 # Inputs: A is an nxn matrix in Zm, m: modulus.
 # Output: B is the inverse of A in Zm.
