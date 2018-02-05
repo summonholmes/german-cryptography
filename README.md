@@ -10,10 +10,12 @@ The MATLAB and Python implementations contain many notable differences, due to t
 
 The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.
 
-Dependencies
+Dependencies 
 ===
 MATLAB and/or Python 3+
 * Python 3 Requires numpy.  
+
+[To be added: C, C++, Javascript, R, Unix Shell]
 
 Installation
 ===
