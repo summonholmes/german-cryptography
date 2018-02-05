@@ -1,4 +1,4 @@
-# classical-cryptography-german
+# German Cryptography
 
 Guten Tag!  Here is a process for performing several classical cryptographic algorithms on the German language, including the umlaut and eszett characters.  
 
