@@ -8,14 +8,14 @@ The algorithms work by substituting the German characters with the additional AS
 
 The MATLAB and Python implementations contain many notable differences, due to the inherent properties of these languages.  For instance, many of the Python functions are reduced to 1-2 lines using list comprehension methods.
 
-The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.
+The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.  
 
 Dependencies 
 ===
 MATLAB and/or Python 3+
 * Python 3 Requires numpy.  
 
-[To be added: C, C++, Javascript, R, Unix Shell]
+[To be added/incomplete: C, C++, Javascript, R, POSIX Shell]
 
 Installation
 ===
@@ -29,7 +29,21 @@ Example:
 ```
 $ /path/to/python/Shift_German.py
 ```
- 
+Troubleshooting
+===
+
+Depending on your environment, the default scripts and functions may not work correctly.  The default 'nachtlied.txt' file is encoded via ISO-8859-1.  When running into trouble with umlauts and eszetts displaying incorrectly, which can break the entire process, do the following:
+
+1. Replace 'nachtlied.txt' with 'nachtlied-utf-8.txt'.  This is most easily accomplished by renaming 'nachtlied-utf-8.txt' to 'nachtlied.txt', then replacing the exiting 'nachtlied.txt' file in the existing Python and Matlab directories.
+
+2. For all the required Python scripts: Shift_German.py, Affine_German.py, Vigenere_German.py, Substitution_German.py, and Hill_German.py; find this line: 
+```
+f = open("nachtlied.txt", 'r', 'iso-8859-1')  
+```
+After completing 1., replace this line with:  
+```
+f = open("nachtlied.txt", 'r', 'utf-8')  
+```
 License
 ===
 
