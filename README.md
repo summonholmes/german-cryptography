@@ -15,7 +15,7 @@ Dependencies
 MATLAB and/or Python 3+
 * Python 3 Requires numpy.  
 
-[To be added: C, C++, Javascript, R, Unix Shell]
+[To be added/incomplete: C, C++, Javascript, R, POSIX Shell]
 
 Installation
 ===
