@@ -2,7 +2,7 @@
 
 Guten Tag!  Here is a process for performing several cryptographic algorithms on the German language, including the umlaut and eszett characters.  
 
-The process utilizes some additional operations to substitute these foreign characters since ASCII is the default character set.  In ASCII, these foreign chracters do not fall within the 65-90 or 97-122 decimal range.  
+The process utilizes some additional operations to substitute these foreign characters since ASCII is the default character set.  In ASCII, these foreign chracters do not fall within the 65-90 or 97-122 decimal range.  Unlike the English alphabet, the alphabet size is 30, which primarily affects the modulo arithmetic of the English versions.
 
 The algorithms work by substituting the German characters with the additional ASCII characters at the ends of these English ASCII ranges, performing encryption, then substituting the German characters back in place.  For decryption, the German characters are subsituted with the end range ascii characters again, decryption is performed, then the German characters are again substituted back in place.
 
@@ -34,7 +34,7 @@ Troubleshooting
 
 Depending on your environment, the default scripts and functions may not work correctly.  The default 'nachtlied.txt' file is encoded via ISO-8859-1.  When running into trouble with umlauts and eszetts displaying incorrectly, which can break the entire process, do the following:
 
-1. Replace 'nachtlied.txt' with 'nachtlied-utf-8.txt'.  This is most easily accomplished by renaming 'nachtlied-utf-8.txt' to 'nachtlied.txt', then replacing the existing 'nachtlied.txt' file in the existing Python and Matlab directories.
+1. Replace 'nachtlied.txt' with 'nachtlied-utf-8.txt'.  This is most easily accomplished by renaming 'nachtlied-utf-8.txt' to 'nachtlied.txt', then replacing the exiting 'nachtlied.txt' file in the existing Python and Matlab directories.
 
 2. For all the required Python scripts: Shift_German.py, Affine_German.py, Vigenere_German.py, Substitution_German.py, and Hill_German.py; find this line: 
 ```
