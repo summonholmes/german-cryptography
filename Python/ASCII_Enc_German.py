@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def ASCII_Enc_German(x):
     # Very similar to preprocessing.
     y = [

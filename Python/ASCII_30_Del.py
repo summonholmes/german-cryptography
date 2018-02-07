@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def ASCII_30_Del(x):
     # For use on the substituted German alphabet.  Revert the changes to
     # retrieve the native German characters.

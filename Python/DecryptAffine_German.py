@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from ExtendedEuclidean import ExtendedEuclidean
 
 

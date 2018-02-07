@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # This function searches for an nxn invertable matrix in Zm.
 # Inputs: n (matrix size) and m (modulus) -- both must be positive integers.

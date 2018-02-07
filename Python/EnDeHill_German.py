@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from math import ceil
 from numpy import zeros, reshape, dot, array, append as np_append
 

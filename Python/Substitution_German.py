@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Substitution cipher for the German alphabet
 from codecs import open
 from PreProcess_German import PreProcess_German

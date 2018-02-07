@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from numpy import identity, linalg, zeros, append as np_append
 from ExtendedEuclidean import ExtendedEuclidean
 # This function computes the inverse of a matrix in Zm using row-operations
