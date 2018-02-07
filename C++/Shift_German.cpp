@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "PreProcess_German.cpp"
+#include "PreProcess_German.hpp"
 
 using namespace std;
 
