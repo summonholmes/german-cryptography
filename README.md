@@ -2,9 +2,9 @@
 
 Guten Tag!  Here is a process for performing several cryptographic algorithms on the German language, including the umlaut and eszett characters.  
 
-The process utilizes some additional operations to substitute these foreign characters since ASCII is the default character set.  In ASCII, these foreign chracters do not fall within the 65-90 or 97-122 decimal range.  Unlike the English alphabet, the alphabet size is 30, which primarily affects the modulo arithmetic of the existing English algorithms.
+The process utilizes some additional operations to substitute these foreign characters since ASCII is the default character set.  In ASCII, these foreign chracters do not fall within the 65-90 or 97-122 decimal range.  Unlike the English alphabet, the alphabet size is 30, which primarily affects the modulo arithmetic of the English versions.
 
-The algorithms work by substituting the German characters with the additional ASCII characters at the ends of these English ASCII ranges, performing encryption, then substituting the German characters back in place.  For decryption, the German characters are subsituted with the end range ASCII characters again, decryption is performed, then the German characters are again substituted back in place.
+The algorithms work by substituting the German characters with the additional ASCII characters at the ends of these English ASCII ranges, performing encryption, then substituting the German characters back in place.  For decryption, the German characters are subsituted with the end range ascii characters again, decryption is performed, then the German characters are again substituted back in place.
 
 The multiple implementations contain many notable differences, due to the inherent properties of these languages.  For instance, many of the Python functions are reduced to 1-2 lines using list comprehension methods; while C++ utilizes passing by reference via pointers.
 
@@ -27,7 +27,7 @@ Choose a cipher to run from the command line or IDE.
 
 Example:
 ```
-$ /path/to/python/Shift_German.py
+$ python3 /path/to/python/Shift_German.py
 ```
 Troubleshooting
 ===
