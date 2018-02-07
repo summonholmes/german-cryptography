@@ -34,7 +34,7 @@ Troubleshooting
 
 Depending on your environment, the default scripts and functions may not work correctly.  The default 'nachtlied.txt' file is encoded via ISO-8859-1.  When running into trouble with umlauts and eszetts displaying incorrectly, which can break the entire process, do the following:
 
-1. Replace 'nachtlied.txt' with 'nachtlied-utf-8.txt'.  This is most easily accomplished by renaming 'nachtlied-utf-8.txt' to 'nachtlied.txt', then replacing the exiting 'nachtlied.txt' file in the existing Python and Matlab directories.
+1. Replace 'nachtlied.txt' with 'nachtlied-utf-8.txt'.  This is most easily accomplished by renaming 'nachtlied-utf-8.txt' to 'nachtlied.txt', then replacing the existing 'nachtlied.txt' file in the existing Python and Matlab directories.
 
 2. For all the required Python scripts: Shift_German.py, Affine_German.py, Vigenere_German.py, Substitution_German.py, and Hill_German.py; find this line: 
 ```
