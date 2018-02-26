@@ -29,6 +29,14 @@ Example:
 ```
 $ python3 /path/to/python/Shift_German.py
 ```
+
+*R+*  
+Choose a cipher to run from the command line or RStudio.  Note that in RStudio, you will have to change the source paths at the beginning of each file.  
+
+Example:
+```
+$ Rscript /path/to/python/Shift_German.py
+```
 Troubleshooting
 ===
 
