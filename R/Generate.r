@@ -1,4 +1,4 @@
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ModMatInv.r')
+source('ModMatInv.r')
 
 Generate <- function(n, m)
 {

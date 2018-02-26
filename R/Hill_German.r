@@ -1,10 +1,10 @@
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/PreProcess_German.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ASCII_30_Add.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ASCII_30_Del.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ASCII_Enc_German.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ASCII_Dec_German.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/EncryptDecryptHill_German.r')
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/Generate.r')
+source('PreProcess_German.r')
+source('ASCII_30_Add.r')
+source('ASCII_30_Del.r')
+source('ASCII_Enc_German.r')
+source('ASCII_Dec_German.r')
+source('EncryptDecryptHill_German.r')
+source('Generate.r')
 
 
 f <- read.delim("/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/nachtlied-utf-8.txt", comment.char="#")

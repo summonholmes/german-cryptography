@@ -1,26 +1,26 @@
 ExtendedEuclidean <- function(a, b)
 {  
-  r0 = a
-  r1 = b
-  x0 = 1
-  x1 = 0
-  y0 = 0
-  y1 = 1
-  z = c(r0, x0, y0)
+  r0 <- a
+  r1 <- b
+  x0 <- 1
+  x1 <- 0
+  y0 <- 0
+  y1 <- 1
+  z <- c(r0, x0, y0)
   
   while(r1 > 0)
   {
-    r = r0 %% r1
-    q = (r0 - r) / r1
-    x = x0 - q * x1
-    y = y0 - q * y1
-    z = c(r1, x1, y1)
-    x0 = x1
-    y0 = y1
-    x1 = x
-    y1 = y
-    r0 = r1
-    r1 = r
+    r <- r0 %% r1
+    q <- (r0 - r) / r1
+    x <- x0 - q * x1
+    y <- y0 - q * y1
+    z <- c(r1, x1, y1)
+    x0 <- x1
+    y0 <- y1
+    x1 <- x
+    y1 <- y
+    r0 <- r1
+    r1 <- r
   }
   return(z)
 }

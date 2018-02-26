@@ -1,4 +1,4 @@
-source('/Users/shanekimble/Dropbox/Code/Git/german-cryptography/R/ExtendedEuclidean.r')
+source('ExtendedEuclidean.r')
 
 ModMatInv <- function(A, m)
 {
