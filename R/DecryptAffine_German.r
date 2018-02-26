@@ -1,4 +1,4 @@
-source('~/german-cryptography/R/ExtendedEuclidean.r')
+source('ExtendedEuclidean.r')
 
 DecryptAffine_German <- function(x, a, b)
 {

@@ -1,13 +1,13 @@
-source('~/german-cryptography/R/PreProcess_German.r')
-source('~/german-cryptography/R/ASCII_30_Add.r')
-source('~/german-cryptography/R/ASCII_30_Del.r')
-source('~/german-cryptography/R/ASCII_Enc_German.r')
-source('~/german-cryptography/R/ASCII_Dec_German.r')
-source('~/german-cryptography/R/EncryptAffine_German.r')
-source('~/german-cryptography/R/DecryptAffine_German.r')
+source('PreProcess_German.r')
+source('ASCII_30_Add.r')
+source('ASCII_30_Del.r')
+source('ASCII_Enc_German.r')
+source('ASCII_Dec_German.r')
+source('EncryptAffine_German.r')
+source('DecryptAffine_German.r')
 
 
-f <- read.delim("~/german-cryptography/nachtlied-utf-8.txt", comment.char="#")
+f <- read.delim("nachtlied-utf-8.txt", comment.char="#")
 x <- paste(unlist(f), collapse = " ")
 
 plaintext <- PreProcess_German(x)

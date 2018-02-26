@@ -1,13 +1,13 @@
-source('~/german-cryptography/R/PreProcess_German.r')
-source('~/german-cryptography/R/ASCII_30_Add.r')
-source('~/german-cryptography/R/ASCII_30_Del.r')
-source('~/german-cryptography/R/ASCII_Enc_German.r')
-source('~/german-cryptography/R/ASCII_Dec_German.r')
-source('~/german-cryptography/R/EncryptSubstitution_German.r')
-source('~/german-cryptography/R/DecryptSubstitution_German.r')
+source('PreProcess_German.r')
+source('ASCII_30_Add.r')
+source('ASCII_30_Del.r')
+source('ASCII_Enc_German.r')
+source('ASCII_Dec_German.r')
+source('EncryptSubstitution_German.r')
+source('DecryptSubstitution_German.r')
 
 
-f <- read.delim("~/german-cryptography/nachtlied-utf-8.txt", comment.char="#")
+f <- read.delim("nachtlied-utf-8.txt", comment.char="#")
 x <- paste(unlist(f), collapse = " ")
 k <- sample(30, 30, replace = FALSE, prob = NULL)
 k <- k + 96
