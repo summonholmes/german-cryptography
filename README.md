@@ -19,10 +19,10 @@ MATLAB and/or Python 3+
 
 Installation
 ===
-*MATLAB*  
+**MATLAB**  
 Drag the files to your MATLAB folder, or browse to the path after download or cloning.  Then select a cipher to run, such as Shift_German.m.
 
-*Python 3+*  
+**Python 3+**  
 Choose a cipher to run from the command line or IDE.  
 
 Example:
@@ -30,7 +30,7 @@ Example:
 $ python3 /path/to/python/Shift_German.py
 ```
 
-*R+*  
+**R**  
 Choose a cipher to run from the command line or RStudio.  Note that in RStudio, you will have to change the source paths at the beginning of each file.  
 
 Example:
