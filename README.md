@@ -10,7 +10,7 @@ The multiple implementations contain many notable differences, due to the inhere
 
 The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.  
 
-[To be added/incomplete: C, C++, Javascript, R, POSIX Shell]  
+[To be added/incomplete: C, C++, Javascript, POSIX Shell]  
 
 Dependencies 
 ===
