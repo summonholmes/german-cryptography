@@ -10,24 +10,41 @@ The multiple implementations contain many notable differences, due to the inhere
 
 The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.  
 
-[To be added/incomplete: C, C++, Javascript, R, POSIX Shell]  
+[To be added/incomplete: C, C++, Javascript, POSIX Shell]  
 
 Dependencies 
 ===
-MATLAB and/or Python 3+
+MATLAB and/or Python 3+ and/or R
 * Python 3 Requires numpy.  
 
 Installation
 ===
-*MATLAB*  
+**MATLAB**  
 Drag the files to your MATLAB folder, or browse to the path after download or cloning.  Then select a cipher to run, such as Shift_German.m.
 
-*Python 3+*  
+**Python 3+**  
 Choose a cipher to run from the command line or IDE.  
 
 Example:
 ```
 $ python3 /path/to/python/Shift_German.py
+```
+
+**R**  
+Choose a cipher to run from the command line or RStudio.  Note that in RStudio, you will have to change the source paths at the beginning of each file.  
+
+Example (RStudio):
+```
+  Change:
+1 source('PreProcess_German.r')
+  To:
+1 source('/path/to/r/PreProcess_German.r')
+```
+
+Example (Command Line):
+```
+$ cd /path/to/r/
+$ Rscript Shift_German.py
 ```
 Troubleshooting
 ===
