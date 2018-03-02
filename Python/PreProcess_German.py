@@ -3,8 +3,6 @@ from re import sub
 
 
 def PreProcess_German(x):
-    y = ''.join(x.split())
-    y = sub(r'[^\w\s]', '', y)
-    y = y.lower()
+    y = sub(r'[^\w\s]', '', (''.join(x.split()))).lower()
 
     return y
