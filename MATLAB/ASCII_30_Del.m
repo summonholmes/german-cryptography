@@ -3,17 +3,16 @@ function y = ASCII_30_Del(x)
 % retrieve the native German characters.
     n = size(x, 2);
     for i = 1 : n
-        xp = x(i);
-        if (xp == 123) 
+        if (x(i) == 123) 
             y(i) = 228;
-        elseif (xp == 124)
+        elseif (x(i) == 124)
             y(i) = 246;
-        elseif (xp == 125)
+        elseif (x(i) == 125)
             y(i) = 252;
-        elseif (xp == 126)
+        elseif (x(i) == 126)
             y(i) = 223;
         else
-            y(i) = xp;
+            y(i) = x(i);
         end
     end
 end
