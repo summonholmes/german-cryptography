@@ -3,17 +3,16 @@ function y = ASCII_30_Add(x)
 % of the lower case character range
     n = size(x, 2);
     for i = 1 : n
-        xp = x(i);
-        if (xp == 228) 
+        if (x(i) == 228) 
             y(i) = 123;
-        elseif (xp == 246)
+        elseif (x(i) == 246)
             y(i) = 124;
-        elseif (xp == 252)
+        elseif (x(i) == 252)
             y(i) = 125;
-        elseif (xp == 223)
+        elseif (x(i) == 223)
             y(i) = 126;
         else
-            y(i) = xp;
+            y(i) = x(i);
         end
     end
 end
