@@ -49,14 +49,16 @@ int main()
     ASCII_30_Add(plaintext_ascii, &array_len);
     EncryptShift_German(plaintext_ascii, &k, &array_len);
     ASCII_Enc_German(plaintext_ascii, &array_len, ciphertext_ascii);
-    for (int i = 0; i < array_len; i++) {ciphertext += ciphertext_ascii[i];}
+    for (int i = 0; i < array_len; i++) 
+    {if ((ciphertext_ascii[i] > 64 && ciphertext_ascii[i] < 91) 
+        || (ciphertext_ascii[i] < -60)) {ciphertext += ciphertext_ascii[i];}}
     ASCII_Dec_German(ciphertext_ascii, &array_len);
     DecryptShift_German(ciphertext_ascii, &k, &array_len);
     ASCII_30_Del(ciphertext_ascii, &array_len, dectext_ascii);
     for (int i = 0; i < array_len; i++ ) {dectext += dectext_ascii[i];}
 
     cout << plaintext.substr(300, 100) << endl;
-    cout << ciphertext.substr(387, 112) << endl;
+    cout << ciphertext.substr(387, 113) << endl;
     cout << dectext.substr(300, 100) << endl;
 
     return 0;
