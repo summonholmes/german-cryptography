@@ -15,4 +15,3 @@ function y = ASCII_Dec_German(x)
         end
     end
 end
-
