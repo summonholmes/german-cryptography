@@ -29,7 +29,7 @@ void ASCII_30_Del(int *ciphertext_ascii, int *array_len, int *dectext_ascii)
         }
         else if (ciphertext_ascii[i] > 0)
         {
-            dectext_ascii[j] = ciphertext_ascii[i];
+            dectext_ascii[j] = ciphertext_ascii[j];
             j++;
         }
     }
