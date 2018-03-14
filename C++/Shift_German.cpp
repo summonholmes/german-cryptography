@@ -45,7 +45,7 @@ int main()
     int dectext_ascii[array_len];
     
     PreProcess_German(&plaintext);
-    for (int i = 0; i < array_len; i++) plaintext_ascii[i] = plaintext[i];
+    for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
     ASCII_30_Add(plaintext_ascii, &array_len);
     EncryptShift_German(plaintext_ascii, &k, &array_len);
     ASCII_Enc_German(plaintext_ascii, &array_len, ciphertext_ascii);
@@ -53,7 +53,7 @@ int main()
     ASCII_Dec_German(ciphertext_ascii, &array_len);
     DecryptShift_German(ciphertext_ascii, &k, &array_len);
     ASCII_30_Del(ciphertext_ascii, &array_len, dectext_ascii);
-    for (int i = 0; i < array_len; i++ ) dectext += dectext_ascii[i];
+    for (int i = 0; i < array_len; i++ ) {dectext += dectext_ascii[i];}
 
     cout << plaintext.substr(300, 100) << endl;
     cout << ciphertext.substr(300, 125) << endl;
