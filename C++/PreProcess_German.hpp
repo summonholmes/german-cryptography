@@ -4,12 +4,12 @@
 
 using namespace std;
 
-void PreProcess_German(string *x)
+void PreProcess_German(string *plaintext)
 {
     char chars[] = "()-:;.,\'!?\n ";
-    transform(x->begin(), x->end(), x->begin(), ::tolower);
+    transform(plaintext->begin(), plaintext->end(), plaintext->begin(), ::tolower);
     for (unsigned int i = 0; i < strlen(chars); ++i)
     {
-        x->erase(remove(x->begin(), x->end(), chars[i]), x->end());
+        plaintext->erase(remove(plaintext->begin(), plaintext->end(), chars[i]), plaintext->end());
     }
 }
