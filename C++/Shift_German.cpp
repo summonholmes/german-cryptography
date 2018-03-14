@@ -56,7 +56,7 @@ int main()
     for (int i = 0; i < array_len; i++ ) {dectext += dectext_ascii[i];}
 
     cout << plaintext.substr(300, 100) << endl;
-    cout << ciphertext.substr(300, 125) << endl;
+    cout << ciphertext.substr(387, 112) << endl;
     cout << dectext.substr(300, 100) << endl;
 
     return 0;
