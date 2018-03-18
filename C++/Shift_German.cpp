@@ -35,11 +35,7 @@ int main()
     get_file.close();
 
     string plaintext = f.str();
-    string plaintext_30 = "";
-    string ciphertext_30 = "";
     string ciphertext = "";
-    string ciphertext_dec_30 = "";
-    string dectext_30 = "";
     string dectext = "";
 
     int k = 23;
@@ -62,11 +58,7 @@ int main()
     DecryptShift_German(ciphertext_ascii_dec_30, &k, &array_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
 
-    for (int i = 0; i < array_len; i++) {plaintext_30 += plaintext_ascii_30[i];}
-    for (int i = 0; i < array_len; i++) {ciphertext_30 += ciphertext_ascii_30[i];}
     for (int i = 0; i < array_len; i++) {ciphertext += ciphertext_ascii[i];}
-    for (int i = 0; i < array_len; i++) {ciphertext_dec_30 += ciphertext_ascii_dec_30[i];}
-    for (int i = 0; i < array_len; i++) {dectext_30 += dectext_ascii_30[i];}
     for (int i = 0; i < array_len; i++) {dectext += dectext_ascii[i];}
 
     cout << plaintext.substr(300, 100) << endl;

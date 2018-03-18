@@ -47,9 +47,9 @@ int main()
     DecryptShift_German(ciphertext_ascii_dec_30, &k, &array_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
     
-    for (int i = 300; i < 400; i++ ) {printf("%c", plaintext[i]);} printf("\n");
-    for (int i = 387; i < 500; i++ ) {printf("%c", ciphertext_ascii[i]);} printf("\n");
-    for (int i = 300; i < 400; i++ ) {printf("%c", dectext_ascii[i]);} printf("\n");
-    
+    for (int i = 300; i < 400; i++) {printf("%c", plaintext[i]);} printf("\n");
+    for (int i = 387; i < 500; i++) {printf("%c", ciphertext_ascii[i]);} printf("\n");
+    for (int i = 300; i < 400; i++) {printf("%c", dectext_ascii[i]);} printf("\n");
+
     return 0;
 }
