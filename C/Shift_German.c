@@ -19,13 +19,13 @@ int main()
 {
     FILE *f;
 
-    int array_len = 2744;
-    char rawtext[3442];
+    int array_len = 2747;
+    char rawtext[3444];
     char plaintext[array_len];
     
     f = fopen("nachtlied-utf-8.txt", "r");
     if (!f) {printf("File not found!"); return 1;}
-    fread(rawtext, 1, 3442, f);
+    fread(rawtext, 1, 3444, f);
     fclose(f);
 
     int k = 23;
@@ -38,7 +38,7 @@ int main()
     int dectext_ascii[array_len];
 
     PreProcess_German(rawtext, plaintext);
-    for (int i = 0; i < 2744; i++) {plaintext_ascii[i] = plaintext[i];}
+    for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
 
     ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
     EncryptShift_German(plaintext_ascii_30, &k, &array_len, ciphertext_ascii_30);
@@ -50,6 +50,6 @@ int main()
     for (int i = 300; i < 400; i++ ) {printf("%c", plaintext[i]);} printf("\n");
     for (int i = 387; i < 500; i++ ) {printf("%c", ciphertext_ascii[i]);} printf("\n");
     for (int i = 300; i < 400; i++ ) {printf("%c", dectext_ascii[i]);} printf("\n");
-
+    
     return 0;
 }
