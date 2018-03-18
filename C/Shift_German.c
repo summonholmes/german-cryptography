@@ -19,13 +19,14 @@ int main()
 {
     FILE *f;
 
+    int array_len_raw = 3444;
     int array_len = 2747;
-    char rawtext[3444];
+    char rawtext[array_len_raw];
     char plaintext[array_len];
     
     f = fopen("nachtlied-utf-8.txt", "r");
     if (!f) {printf("File not found!"); return 1;}
-    fread(rawtext, 1, 3444, f);
+    fread(rawtext, 1, array_len_raw, f);
     fclose(f);
 
     int k = 23;
