@@ -1,39 +1,31 @@
-void ASCII_Enc_German(int *plaintext_ascii, int *array_len, int *ciphertext_ascii)
+void ASCII_Enc_German(int *ciphertext_ascii_30, int *array_len, int *ciphertext_ascii)
 {
     int j = 0;
     for (int i = 0; i < *array_len; i++)
     {
-        if (plaintext_ascii[j] == 91)
+        if (ciphertext_ascii_30[i] == 91)
         {
-            ciphertext_ascii[i] = -61;
-            ciphertext_ascii[i + 1] = -124;
-            j++;
-            i++;
+            ciphertext_ascii[j] = -61; j++;
+            ciphertext_ascii[j] = -124; j++;
         }
-        else if (plaintext_ascii[j] == 92)
+        else if (ciphertext_ascii_30[i] == 92)
         {
-            ciphertext_ascii[i] = -61;
-            ciphertext_ascii[i + 1] = -106;
-            j++;
-            i++;
+            ciphertext_ascii[j] = -61; j++;
+            ciphertext_ascii[j] = -106; j++;
         }
-        else if (plaintext_ascii[j] == 93)
+        else if (ciphertext_ascii_30[i] == 93)
         {
-            ciphertext_ascii[i] = -61;
-            ciphertext_ascii[i + 1] = -100;
-            j++;
-            i++;
+            ciphertext_ascii[j] = -61; j++;
+            ciphertext_ascii[j] = -100; j++;
         }
-        else if (plaintext_ascii[j] == 94)
+        else if (ciphertext_ascii_30[i] == 94)
         {
-            ciphertext_ascii[i] = -61;
-            ciphertext_ascii[i + 1] = -97;
-            j++;
-            i++;
+            ciphertext_ascii[j] = -61; j++;
+            ciphertext_ascii[j] = -97; j++;
         }
-        else if (plaintext_ascii[j] > 0)
+        else if (ciphertext_ascii_30[i] > 64 && ciphertext_ascii_30[i] < 91)
         {
-            ciphertext_ascii[i] = plaintext_ascii[j];
+            ciphertext_ascii[j] = ciphertext_ascii_30[i];
             j++;
         }
     }
