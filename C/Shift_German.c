@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "PreProcess_German.h"
 #include "ASCII_30_Add.h"
 #include "EncryptShift_German.h"
