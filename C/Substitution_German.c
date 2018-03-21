@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include <time.h>
 #include <stdlib.h>
 #include "PreProcess_German.h"
@@ -42,14 +41,14 @@ int main()
     
     PreProcess_German(rawtext, plaintext);
     for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
-    for (int i = 0; i < 30; i++){k[i] = i + 97;}
+    for (int i = 0; i < alpha_len; i++){k[i] = i + 97;}
     Shuffle(k, &alpha_len);
 
     ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
     EncryptSubstitution_German(plaintext_ascii_30, &array_len, k, ciphertext_ascii_30);
     ASCII_Enc_German(ciphertext_ascii_30, &array_len, ciphertext_ascii);
     ASCII_Dec_German(ciphertext_ascii, &array_len, ciphertext_ascii_dec_30);
-    DecryptSubstitution_German(ciphertext_ascii_dec_30, &array_len, &k, &alpha_len, dectext_ascii_30);
+    DecryptSubstitution_German(ciphertext_ascii_dec_30, &array_len, k, &alpha_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
     
     for (int i = 0; i < 100; i++) {printf("%c", plaintext[i]);} printf("\n");

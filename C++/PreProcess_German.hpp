@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <string>
-#include <cstring>
-
 using namespace std;
 
 void PreProcess_German(string *plaintext)
