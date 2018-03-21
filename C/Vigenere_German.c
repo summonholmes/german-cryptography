@@ -19,9 +19,9 @@ void ASCII_30_Del(int *, int *, int *);
 int main()
 {
     FILE *f;
-    int array_len_raw = 3444; int array_len = 2747;
+    int array_len_raw = 3442; int array_len = 2745; int keyword_len = 10;
     char rawtext[array_len_raw]; char plaintext[array_len]; char keyword[10] = "bratwurst"; 
-    int keyword_len = 10; int keyword_ascii[keyword_len]; 
+    int keyword_ascii[keyword_len]; 
     int plaintext_ascii[array_len];
     int plaintext_ascii_30[array_len];
     int ciphertext_ascii_30[array_len];
