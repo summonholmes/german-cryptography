@@ -20,8 +20,8 @@ int main()
 {
     FILE *f;
 
-    int array_len_raw = 3444;
-    int array_len = 2747;
+    int array_len_raw = 3442;
+    int array_len = 2745;
     char rawtext[array_len_raw];
     char plaintext[array_len];
     
