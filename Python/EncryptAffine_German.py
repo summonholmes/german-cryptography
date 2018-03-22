@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-def EncryptAffine_German(x, a, b):
-    y = [(((a * (i - 97) + b) % 30) + 65) for i in x]
+def EncryptAffine_German(plaintext_ascii_30, a, b):
+    ciphertext_ascii_30 = [(((a * (i - 97) + b) % 30) + 65) for i in plaintext_ascii_30]
 
-    return y
+    return ciphertext_ascii_30

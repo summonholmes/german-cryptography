@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 def ExtendedEuclidean(a, b):
     r0 = a
     r1 = b

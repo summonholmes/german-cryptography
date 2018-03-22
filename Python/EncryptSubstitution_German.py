@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-def EncryptSubstitution_German(x, k):
-    y = [(k[i - 97] - 32) for i in x]
+def EncryptSubstitution_German(plaintext_ascii_30, key_list):
+    ciphertext_ascii_30 = [(key_list[i - 97] - 32) for i in plaintext_ascii_30]
 
-    return y
+    return ciphertext_ascii_30

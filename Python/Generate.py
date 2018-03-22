@@ -1,22 +1,13 @@
-#!/usr/bin/env python3
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# This function searches for an nxn invertable matrix in Zm.
-# Inputs: n (matrix size) and m (modulus) -- both must be positive integers.
-# Outputs: K: nxn invertable matrix in Zm, K_1: inverse of K, and i: number
-# of attempts until the first success
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 from numpy import random, zeros, array_equal, round as np_round
 from ModMatInv import ModMatInv
 
 
-def Generate(n, m):
-    K = np_round((m - 1) * random.rand(n, n))
-    K_1 = ModMatInv(K, m)
-    i = 0
+def Generate(matrix_len, alpha_len):
+    key = np_round((alpha_len - 1) * random.rand(matrix_len, matrix_len))
+    inverted_key = ModMatInv(key, alpha_len)
 
-    while array_equal(K_1, zeros((n, n))) is True:
-        i = i + 1
-        K = np_round((m - 1) * random.rand(n, n))
-        K_1 = ModMatInv(K, m)
+    while array_equal(inverted_key, zeros((matrix_len, matrix_len))) is True:
+        key = np_round((alpha_len - 1) * random.rand(matrix_len, matrix_len))
+        inverted_key = ModMatInv(key, alpha_len)
 
-    return [K, K_1, i]
+    return [key, inverted_key]

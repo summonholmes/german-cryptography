@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# Shift cipher for the German alphabet
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
@@ -10,20 +8,20 @@ from EncryptShift_German import EncryptShift_German
 from DecryptShift_German import DecryptShift_German
 
 f = open("nachtlied.txt", 'r', 'iso-8859-1')
-x = f.read()
+rawtext= f.read()
 f.close()
 
-k = 23  # Magnitude of shift
+shift_k = 23
 
-plaintext = PreProcess_German(x)
-plaintext_ascii = [ord(c) for c in plaintext]
+plaintext = PreProcess_German(rawtext)
+plaintext_ascii = [ord(i) for i in plaintext]
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
-ciphertext_ascii_30 = EncryptShift_German(plaintext_ascii_30, k)
+ciphertext_ascii_30 = EncryptShift_German(plaintext_ascii_30, shift_k)
 ciphertext_ascii = ASCII_Enc_German(ciphertext_ascii_30)
-ciphertext_ascii_dec = ASCII_Dec_German(ciphertext_ascii)
+ciphertext_ascii_dec_30 = ASCII_Dec_German(ciphertext_ascii)
 
-dectext_ascii_30 = DecryptShift_German(ciphertext_ascii_dec, k)
+dectext_ascii_30 = DecryptShift_German(ciphertext_ascii_dec_30, shift_k)
 dectext_ascii = ASCII_30_Del(dectext_ascii_30)
 
 ciphertext = ''.join(chr(i) for i in ciphertext_ascii)

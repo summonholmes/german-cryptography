@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
 from re import sub
 
 
-def PreProcess_German(x):
-    y = sub(r'[^\w\s]', '', (''.join(x.split()))).lower()
+def PreProcess_German(rawtext):
+    plaintext = sub(r'[^\w\s]', '', (''.join(rawtext.split()))).lower()
 
-    return y
+    return plaintext

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-def EncryptShift_German(x, k):
-    y = [(((i - 97 + k) % 30) + 65) for i in x]
+def EncryptShift_German(plaintext_ascii_30, shift_k):
+    ciphertext_ascii_30 = [(((i - 97 + shift_k) % 30) + 65) for i in plaintext_ascii_30]
 
-    return y
+    return ciphertext_ascii_30

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
@@ -15,16 +14,16 @@ x = f.read()
 f.close()
 
 plaintext = PreProcess_German(x)
-plaintext_ascii = [ord(c) for c in plaintext]
+plaintext_ascii = [ord(i) for i in plaintext]
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
-[K, K_1, i] = Generate(8, 30)
+[key, inverted_key] = Generate(8, 30)
 
 ciphertext_ascii_30 = EncryptDecryptHill_German(
-    [(i - 97) for i in plaintext_ascii_30], K, 30)
+    [(i - 97) for i in plaintext_ascii_30], key, 30)
 ciphertext_ascii = ASCII_Enc_German([(i + 65) for i in ciphertext_ascii_30])
 
-dectext_ascii_30 = EncryptDecryptHill_German(ciphertext_ascii_30, K_1, 30)
+dectext_ascii_30 = EncryptDecryptHill_German(ciphertext_ascii_30, inverted_key, 30)
 dectext_ascii = ASCII_30_Del([(i + 97) for i in dectext_ascii_30])
 
 ciphertext = ''.join(chr(i) for i in ciphertext_ascii)

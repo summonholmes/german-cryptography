@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-def DecryptSubstitution_German(x, k):
-    k1 = list(zip([(i - 97) for i in k], [(i + 97) for i in range(len(k))]))
-    y = [j[:][1] for i in x for j in k1 if (i - 65) == j[:][0]]
+def DecryptSubstitution_German(ciphertext_ascii_30, key_list):
+    lookup_key = list(zip([(i - 97) for i in key_list], [(i + 97) for i in range(len(key_list))]))
+    dectext_ascii_30 = [j[:][1] for i in ciphertext_ascii_30 for j in lookup_key if (i - 65) == j[:][0]]
 
-    return y
+    return dectext_ascii_30

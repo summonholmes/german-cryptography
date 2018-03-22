@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-def DecryptShift_German(x, k):
-    y = [(((i - 65 - k) % 30) + 97) for i in x]
+def DecryptShift_German(ciphertext_ascii_dec_30, shift_k):
+    dectext_ascii_30 = [(((i - 65 - shift_k) % 30) + 97) for i in ciphertext_ascii_dec_30]
 
-    return y
+    return dectext_ascii_30

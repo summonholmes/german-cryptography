@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# Substitution cipher for the German alphabet
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
@@ -14,17 +12,17 @@ f = open("nachtlied.txt", 'r', 'iso-8859-1')
 x = f.read()
 f.close()
 
-k = random.permutation(30)[:] + 97
+key_list = random.permutation(30)[:] + 97
 
 plaintext = PreProcess_German(x)
-plaintext_ascii = [ord(c) for c in plaintext]
+plaintext_ascii = [ord(i) for i in plaintext]
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
-ciphertext_ascii_30 = EncryptSubstitution_German(plaintext_ascii_30, k)
+ciphertext_ascii_30 = EncryptSubstitution_German(plaintext_ascii_30, key_list)
 ciphertext_ascii = ASCII_Enc_German(ciphertext_ascii_30)
 ciphertext_ascii_30 = ASCII_Dec_German(ciphertext_ascii)
 
-dectext_ascii_30 = DecryptSubstitution_German(ciphertext_ascii_30, k)
+dectext_ascii_30 = DecryptSubstitution_German(ciphertext_ascii_30, key_list)
 dectext_ascii = ASCII_30_Del(dectext_ascii_30)
 
 ciphertext = ''.join(chr(i) for i in ciphertext_ascii)

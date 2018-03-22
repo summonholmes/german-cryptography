@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# Affine cipher for the German alphabet
 from codecs import open
 from PreProcess_German import PreProcess_German
 from ASCII_Enc_German import ASCII_Enc_German
@@ -14,7 +12,7 @@ x = f.read()
 f.close()
 
 plaintext = PreProcess_German(x)
-plaintext_ascii = [ord(c) for c in plaintext]
+plaintext_ascii = [ord(i) for i in plaintext]
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
 ciphertext_ascii_30 = EncryptAffine_German(plaintext_ascii_30, 7, 5)
