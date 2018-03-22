@@ -3,6 +3,8 @@
 #include <sstream>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
+#include <cstring>
 #include "ASCII_30_Add.hpp"
 #include "PreProcess_German.hpp"
 #include "Shuffle.hpp"

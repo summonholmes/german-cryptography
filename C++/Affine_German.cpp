@@ -2,6 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+#include <algorithm>
+#include <cstring>
 #include "PreProcess_German.hpp"
 #include "ASCII_30_Add.hpp"
 #include "EncryptAffine_German.hpp"
