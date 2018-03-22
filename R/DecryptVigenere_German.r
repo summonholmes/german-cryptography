@@ -1,12 +1,11 @@
-DecryptVigenere_German <- function(x, k)
+DecryptVigenere_German <- function(ciphertext_ascii_dec, keyword)
 {
-  k1 <- utf8ToInt(k) - 97
-  y <- x
-  for(i in 1 : length(x))
+  keyword_ascii <- utf8ToInt(keyword) - 97
+  dectext_ascii_30 <- ciphertext_ascii_dec
+  for(i in 1 : length(ciphertext_ascii_dec))
   {
-    xp <- x[i] - 65
-    ii <- ((i - 1) %% length(k1)) + 1
-    y[i] <- ((xp - k1[ii]) %% 30) + 97
+    dectext_ascii_30[i] <- (((ciphertext_ascii_dec[i] - 65) - keyword_ascii[((i - 1) %% length(keyword_ascii)) + 1]) %% 30) + 97
   }
-  return(y)
+  
+  return(dectext_ascii_30)
 }

@@ -7,7 +7,6 @@ ExtendedEuclidean <- function(a, b)
   y0 <- 0
   y1 <- 1
   z <- c(r0, x0, y0)
-  
   while(r1 > 0)
   {
     r <- r0 %% r1
@@ -22,5 +21,6 @@ ExtendedEuclidean <- function(a, b)
     r0 <- r1
     r1 <- r
   }
+  
   return(z)
 }

@@ -1,8 +1,9 @@
-ASCII_Enc_German <- function(x)
+ASCII_Enc_German <- function(ciphertext_ascii)
 {
-  y <- replace(as.numeric(x), x == 91, 196)
-  y <- replace(as.numeric(y), y == 92, 214)
-  y <- replace(as.numeric(y), y == 93, 220)
-  y <- replace(as.numeric(y), y == 94, 223)
-  return(y)
+  ciphertext_ascii[ciphertext_ascii == 91] <- 196
+  ciphertext_ascii[ciphertext_ascii == 92] <- 214
+  ciphertext_ascii[ciphertext_ascii == 93] <- 220
+  ciphertext_ascii[ciphertext_ascii == 94] <- 223
+  
+  return(ciphertext_ascii)
 }

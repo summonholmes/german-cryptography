@@ -1,8 +1,9 @@
-ASCII_Dec_German <- function(x)
+ASCII_Dec_German <- function(ciphertext_ascii_dec_30)
 {
-  y <- replace(as.numeric(x), x == 196, 91)
-  y <- replace(as.numeric(y), y == 214, 92)
-  y <- replace(as.numeric(y), y == 220, 93)
-  y <- replace(as.numeric(y), y == 223, 94)
-  return(y)
+  ciphertext_ascii_dec_30[ciphertext_ascii_dec_30 == 196] <- 91
+  ciphertext_ascii_dec_30[ciphertext_ascii_dec_30 == 214] <- 92
+  ciphertext_ascii_dec_30[ciphertext_ascii_dec_30 == 220] <- 93
+  ciphertext_ascii_dec_30[ciphertext_ascii_dec_30 == 223] <- 94
+
+  return(ciphertext_ascii_dec_30)
 }

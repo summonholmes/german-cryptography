@@ -1,12 +1,11 @@
-EncryptVigenere_German <- function(x, k)
+EncryptVigenere_German <- function(plaintext_ascii_30, keyword)
 {
-  k1 <- utf8ToInt(k) - 97
-  y <- x
-  for(i in 1 : length(x))
+  keyword_ascii <- utf8ToInt(keyword) - 97
+  ciphertext_ascii_3 <- plaintext_ascii_30
+  for(i in 1 : length(plaintext_ascii_30))
   {
-    xp <- x[i] - 97
-    ii <- ((i - 1) %% length(k1)) + 1
-    y[i] <- ((xp + k1[ii]) %% 30) + 65
+    ciphertext_ascii_3[i] <- (((plaintext_ascii_30[i] - 97) + keyword_ascii[((i - 1) %% length(keyword_ascii)) + 1]) %% 30) + 65
   }
-  return(y)
+  
+  return(ciphertext_ascii_3)
 }

@@ -1,25 +1,24 @@
-DecryptSubstitution_German <- function(x, k)
+DecryptSubstitution_German <- function(ciphertext_ascii_dec, key_list)
 {
-  k1 <- k
-  k2 <- k
-  y <- x
-  
-  for(i in 1 : length(k))
+  k_temp1 <- key_list
+  k_temp2 <- key_list
+  dectext_ascii_30 <- ciphertext_ascii_dec
+  for(i in 1 : length(key_list))
   {
-    k1[i] <- k[i] - 96
-    k2[i] <- i + 96
+    k_temp1[i] <- key_list[i] - 96
+    k_temp2[i] <- i + 96
   }
   
-  for(i in 1 : length(x))
+  for(i in 1 : length(ciphertext_ascii_dec))
   {
-    xp <- x[i] - 64
-    for(j in 1 : length(k))
+    for(j in 1 : length(key_list))
     {
-      if(xp == k1[j])
+      if((ciphertext_ascii_dec[i] - 64) == k_temp1[j])
       {
-        y[i] <- k2[j]
+        dectext_ascii_30[i] <- k_temp2[j]
       }
     }
   }
-  return(y)
+
+  return(dectext_ascii_30)
 }

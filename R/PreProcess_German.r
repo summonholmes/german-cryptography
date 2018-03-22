@@ -1,7 +1,6 @@
-PreProcess_German <- function(x)
+PreProcess_German <- function(rawtext)
 {
-  y <- gsub('\\s+', '', x)
-  y <- tolower(y)
-  y <- gsub("[[:punct:]]", "", as.character(y))
-  return(y)
+  plaintext <- gsub("[[:punct:]]", "", as.character(tolower(gsub('\\s+', '', rawtext))))
+  
+  return(plaintext)
 }

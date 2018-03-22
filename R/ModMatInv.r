@@ -1,48 +1,45 @@
 source('ExtendedEuclidean.r')
 
-ModMatInv <- function(A, m)
+ModMatInv <- function(key, alpha_len)
 {
-  n <- nrow(A)
-  X <- cbind(A, diag(n))
-  d <- round(det(A) %% m)
-  x1 <- ExtendedEuclidean(m, d)
+  key_identity_matrix <- cbind(key, diag(nrow(key)))
+  key_determinant <- round(det(key) %% alpha_len)
+  ext_eucl_determinant <- ExtendedEuclidean(alpha_len, key_determinant)
   
-  if (x1[1] != 1)
+  if (ext_eucl_determinant[1] != 1)
   {
-    B <- matrix(0, nrow = n, ncol = n)
-    return(B)
+    inverted_key <- matrix(0, nrow = nrow(key), ncol = nrow(key))
+    return(inverted_key)
   }
   
-  for (i in 1 : n)
+  for (i in 1 : nrow(key))
   {
-    x <- X[i, i]
-    x1 <- ExtendedEuclidean(m, x)
+    ext_eucl_iter <- ExtendedEuclidean(alpha_len, key_identity_matrix[i, i])
     ii <- i
-    while (x1[1] != 1 && ii < n)
+    while (ext_eucl_iter[1] != 1 && ii < nrow(key))
     {
       ii <- ii + 1
-      x <- (X[ii, i] + X[i, i]) %% m
-      x1 <- ExtendedEuclidean(m, x)
+      ext_eucl_iter <- ExtendedEuclidean(alpha_len, ((key_identity_matrix[ii, i] + key_identity_matrix[i, i]) %% alpha_len))
     }
-    if (x1[1] != 1)
+    if (ext_eucl_iter[1] != 1)
     {
-      B <- matrix(0, nrow = n, ncol = n)
-      return(B)
+      inverted_key <- matrix(0, nrow = nrow(key), ncol = nrow(key))
+      return(inverted_key)
     }
     if (ii != i)
     {
-      X[i,] <- (X[i,] + X[ii,]) %% m
+      key_identity_matrix[i,] <- (key_identity_matrix[i,] + key_identity_matrix[ii,]) %% alpha_len
     }
-    X[i,] <- (x1[3] * X[i,]) %% m
-    for (j in 1 : n)
+    key_identity_matrix[i,] <- (ext_eucl_iter[3] * key_identity_matrix[i,]) %% alpha_len
+    for (j in 1 : nrow(key))
     {
       if (j != i)
       {
-        x <- X[j, i]
-        X[j,] <- (X[j,] - x * X[i,]) %% m
+        key_identity_matrix[j,] <- (key_identity_matrix[j,] - (key_identity_matrix[j, i]) * key_identity_matrix[i,]) %% alpha_len
       }
     }
   }
-  B <- X[, (n+1):(n*2)]
-  return(B)
+  inverted_key <- key_identity_matrix[, (nrow(key) + 1):(nrow(key) * 2)]
+  
+  return(inverted_key)
 }

@@ -1,5 +1,6 @@
-EncryptAffine_German <- function(x, a, b)
+EncryptAffine_German <- function(plaintext_ascii_30, a, b)
 {
-  y <- ((a * (x - 97) + b) %% 30) + 65
-  return(y)
+  ciphertext_ascii_30 <- ((a * (plaintext_ascii_30 - 97) + b) %% 30) + 65
+  
+  return(ciphertext_ascii_30)
 }

@@ -8,9 +8,9 @@ source('DecryptVigenere_German.r')
 
 
 f <- read.delim("nachtlied-utf-8.txt", comment.char="#")
-x <- paste(unlist(f), collapse = " ")
+rawtext <- paste(unlist(f), collapse = " ")
 
-plaintext <- PreProcess_German(x)
+plaintext <- PreProcess_German(rawtext)
 plaintext_ascii <- utf8ToInt(plaintext)
 plaintext_ascii_30 <- ASCII_30_Add(plaintext_ascii)
 

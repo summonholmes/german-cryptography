@@ -1,17 +1,14 @@
 source('ModMatInv.r')
 
-Generate <- function(n, m)
+Generate <- function(matrix_len, alpha_len)
 {
-  K <- round((m - 1) * matrix(runif(n * n), ncol = n))
-  K_1 <- ModMatInv(K, m)
-  i <- 1
-
-  
-  while (all.equal(K_1, matrix(0, nrow = n, ncol = n)) == TRUE)
+  key <- round((alpha_len - 1) * matrix(runif(matrix_len * matrix_len), ncol = matrix_len))
+  inverted_key <- ModMatInv(key, alpha_len)
+  while (all.equal(inverted_key, matrix(0, nrow = matrix_len, ncol = matrix_len)) == TRUE)
     {
-    i <- i + 1
-    K <- round((m - 1) * matrix(runif(n * n), ncol = n))
-    K_1 <- ModMatInv(K, m)
+    key <- round((alpha_len - 1) * matrix(runif(matrix_len * matrix_len), ncol = matrix_len))
+    inverted_key <- ModMatInv(key, alpha_len)
   }
-  return(list(K, K_1, i))
+
+  return(list(key, inverted_key))
 }

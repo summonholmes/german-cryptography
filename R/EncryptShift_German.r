@@ -1,5 +1,6 @@
-EncryptShift_German <- function(x, k)
+EncryptShift_German <- function(plaintext_ascii_30, shift_k)
 {
-  y <- ((x - 97 + k) %% 30) + 65
-  return(y)
+  ciphertext_ascii_30 <- ((plaintext_ascii_30 - 97 + shift_k) %% 30) + 65
+  
+  return(ciphertext_ascii_30)
 }

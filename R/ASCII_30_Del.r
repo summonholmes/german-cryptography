@@ -1,8 +1,9 @@
-ASCII_30_Del <- function(x)
+ASCII_30_Del <- function(dectext_ascii)
 {
-  y <- replace(as.numeric(x), x == 123, 228)
-  y <- replace(as.numeric(y), y == 124, 246)
-  y <- replace(as.numeric(y), y == 125, 252)
-  y <- replace(as.numeric(y), y == 126, 223)
-  return(y)
+  dectext_ascii[dectext_ascii == 123] <- 228
+  dectext_ascii[dectext_ascii == 124] <- 246
+  dectext_ascii[dectext_ascii == 125] <- 252
+  dectext_ascii[dectext_ascii == 126] <- 223
+
+  return(dectext_ascii)
 }
