@@ -15,17 +15,18 @@ void PreProcess_German(char *rawtext, char *plaintext)
         }
         else if (isupper((unsigned char)*src))
         {
-            *dst++ = tolower((unsigned char)*src); 
+            *dst++ = tolower((unsigned char)*src);
             src++;
         }
         else if (*src == -100)
         {
-            *dst = -68; src++; 
+            *dst = -68;
+            src++;
             dst++;
         }
         else if (src == dst)
         {
-            src++; 
+            src++;
             dst++;
         }
         else

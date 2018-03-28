@@ -1,11 +1,11 @@
-void DecryptAffine_German(int *ciphertext_ascii_dec_30, int *a, int *b, int *k, int *z, int *array_len, int *dectext_ascii_30)
+void DecryptAffine_German(int *ciphertext_ascii_dec_30, int *a, int *b, int *alpha_len, int *ext_eucl, int *array_len, int *dectext_ascii_30)
 {
     int q, r;
-    ExtendedEuclidean(&*k, &*a, z);
+    ExtendedEuclidean(&*alpha_len, &*a, ext_eucl);
     for (int i = 0; i < *array_len; i++)
     {
-        q = floor(((double)((z[2] * ciphertext_ascii_dec_30[i] - 65) - *b * z[2])) / 30);
-        r = ((z[2] * ciphertext_ascii_dec_30[i] - 65) - *b * z[2]) - 30 * q;
+        q = floor(((double)((ext_eucl[2] * ciphertext_ascii_dec_30[i] - 65) - *b * ext_eucl[2])) / *alpha_len);
+        r = ((ext_eucl[2] * ciphertext_ascii_dec_30[i] - 65) - *b * ext_eucl[2]) - *alpha_len * q;
         dectext_ascii_30[i] = r + 97;
     }
 }

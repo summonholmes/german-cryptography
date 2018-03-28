@@ -8,7 +8,7 @@
 #include "DecryptShift_German.h"
 #include "ASCII_30_Del.h"
 
-void PreProcess_German(char *,char *);
+void PreProcess_German(char *, char *);
 void ASCII_30_Add(int *, int *, int *);
 void EncryptShift_German(int *, int *, int *, int *);
 void ASCII_Enc_German(int *, int *, int *);
@@ -24,13 +24,17 @@ int main()
     int array_len = 2745;
     char rawtext[array_len_raw];
     char plaintext[array_len];
-    
+
     f = fopen("nachtlied-utf-8.txt", "r");
-    if (!f) {printf("File not found!"); return 1;}
+    if (!f)
+    {
+        printf("File not found!");
+        return 1;
+    }
     fread(rawtext, 1, array_len_raw, f);
     fclose(f);
 
-    int k = 23;
+    int key = 23;
     int plaintext_ascii[array_len];
     int plaintext_ascii_30[array_len];
     int ciphertext_ascii_30[array_len];
@@ -40,18 +44,33 @@ int main()
     int dectext_ascii[array_len];
 
     PreProcess_German(rawtext, plaintext);
-    for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
+    for (int i = 0; i < array_len; i++)
+    {
+        plaintext_ascii[i] = plaintext[i];
+    }
 
     ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
-    EncryptShift_German(plaintext_ascii_30, &k, &array_len, ciphertext_ascii_30);
+    EncryptShift_German(plaintext_ascii_30, &key, &array_len, ciphertext_ascii_30);
     ASCII_Enc_German(ciphertext_ascii_30, &array_len, ciphertext_ascii);
     ASCII_Dec_German(ciphertext_ascii, &array_len, ciphertext_ascii_dec_30);
-    DecryptShift_German(ciphertext_ascii_dec_30, &k, &array_len, dectext_ascii_30);
+    DecryptShift_German(ciphertext_ascii_dec_30, &key, &array_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
-    
-    for (int i = 300; i < 400; i++) {printf("%c", plaintext[i]);} printf("\n");
-    for (int i = 387; i < 500; i++) {printf("%c", ciphertext_ascii[i]);} printf("\n");
-    for (int i = 300; i < 400; i++) {printf("%c", dectext_ascii[i]);} printf("\n");
+
+    for (int i = 300; i < 400; i++)
+    {
+        printf("%c", plaintext[i]);
+    }
+    printf("\n");
+    for (int i = 387; i < 500; i++)
+    {
+        printf("%c", ciphertext_ascii[i]);
+    }
+    printf("\n");
+    for (int i = 300; i < 400; i++)
+    {
+        printf("%c", dectext_ascii[i]);
+    }
+    printf("\n");
 
     return 0;
 }

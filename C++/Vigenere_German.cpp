@@ -14,7 +14,7 @@
 
 using namespace std;
 
-void PreProcess_German(char *,char *);
+void PreProcess_German(char *, char *);
 void ASCII_30_Add(int *, int *, int *);
 void EncryptVigenere_German(int *, int *, int *, int *, int *);
 void ASCII_Enc_German(int *, int *, int *);
@@ -40,7 +40,7 @@ int main()
     string ciphertext = "";
     string dectext = "";
     string keyword = "bratwurst";
-    
+
     int array_len = plaintext.length();
     int keyword_len = keyword.length();
     int keyword_ascii[keyword_len];
@@ -51,10 +51,16 @@ int main()
     int ciphertext_ascii_dec_30[array_len];
     int dectext_ascii_30[array_len];
     int dectext_ascii[array_len];
-    
+
     PreProcess_German(&plaintext);
-    for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
-    for (int i = 0; i < keyword_len; i++) {keyword_ascii[i] = keyword[i] - 97;}
+    for (int i = 0; i < array_len; i++)
+    {
+        plaintext_ascii[i] = plaintext[i];
+    }
+    for (int i = 0; i < keyword_len; i++)
+    {
+        keyword_ascii[i] = keyword[i] - 97;
+    }
 
     ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
     EncryptVigenere_German(plaintext_ascii_30, &array_len, keyword_ascii, &keyword_len, ciphertext_ascii_30);
@@ -63,8 +69,14 @@ int main()
     DecryptVigenere_German(ciphertext_ascii_dec_30, &array_len, keyword_ascii, &keyword_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
 
-    for (int i = 0; i < array_len; i++) {ciphertext += ciphertext_ascii[i];}
-    for (int i = 0; i < array_len; i++) {dectext += dectext_ascii[i];}
+    for (int i = 0; i < array_len; i++)
+    {
+        ciphertext += ciphertext_ascii[i];
+    }
+    for (int i = 0; i < array_len; i++)
+    {
+        dectext += dectext_ascii[i];
+    }
 
     cout << plaintext.substr(0, 100) << endl;
     cout << ciphertext.substr(0, 109) << endl;

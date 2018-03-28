@@ -16,7 +16,7 @@
 
 using namespace std;
 
-void PreProcess_German(char *,char *);
+void PreProcess_German(char *, char *);
 void ASCII_30_Add(int *, int *, int *);
 void EncryptSubstitution_German(int *, int *, int *, int *);
 void ASCII_Enc_German(int *, int *, int *);
@@ -41,7 +41,7 @@ int main()
     string plaintext = f.str();
     string ciphertext = "";
     string dectext = "";
-    
+
     int array_len = plaintext.length();
     int alpha_len = 30;
     int k[alpha_len];
@@ -55,8 +55,14 @@ int main()
     srand(time(NULL));
 
     PreProcess_German(&plaintext);
-    for (int i = 0; i < array_len; i++) {plaintext_ascii[i] = plaintext[i];}
-    for (int i = 0; i < 30; i++){k[i] = i + 97;}
+    for (int i = 0; i < array_len; i++)
+    {
+        plaintext_ascii[i] = plaintext[i];
+    }
+    for (int i = 0; i < 30; i++)
+    {
+        k[i] = i + 97;
+    }
     Shuffle(k, &alpha_len); // C++ random_shuffle does not work for me
 
     ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
@@ -66,8 +72,14 @@ int main()
     DecryptSubstitution_German(ciphertext_ascii_dec_30, &array_len, k, &alpha_len, dectext_ascii_30);
     ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
 
-    for (int i = 0; i < array_len; i++) {ciphertext += ciphertext_ascii[i];}
-    for (int i = 0; i < array_len; i++) {dectext += dectext_ascii[i];}
+    for (int i = 0; i < array_len; i++)
+    {
+        ciphertext += ciphertext_ascii[i];
+    }
+    for (int i = 0; i < array_len; i++)
+    {
+        dectext += dectext_ascii[i];
+    }
 
     cout << plaintext.substr(0, 100) << endl;
     cout << ciphertext.substr(0, 109) << endl;
