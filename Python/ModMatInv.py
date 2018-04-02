@@ -1,5 +1,7 @@
-from numpy import identity, linalg, zeros, append as np_append
+from numpy import identity, linalg, zeros, count_nonzero, append as np_append
 from ExtendedEuclidean import ExtendedEuclidean
+from ModMatIter import ModMatIter
+
 
 def ModMatInv(key, alpha_len):
     key_identity_matrix = np_append(key, identity(len(key)), axis=1)
@@ -7,29 +9,12 @@ def ModMatInv(key, alpha_len):
     ext_eucl_determinant = ExtendedEuclidean(alpha_len, key_determinant)
 
     if ext_eucl_determinant[0] != 1:
-        inverted_key = zeros((len(key), len(key)))
-        return inverted_key
+        key_invalid = zeros((len(key), len(key)))
+        return key_invalid
     else:
-        for i in range(len(key)):
-            ext_eucl_iter = ExtendedEuclidean(alpha_len, key_identity_matrix[i][i])
-            ii = i
-            
-            while ext_eucl_iter[0] != 1 and ii < (len(key) - 1):
-                ii += 1
-                ext_eucl_iter = ExtendedEuclidean(alpha_len, ((key_identity_matrix[ii][i] + key_identity_matrix[i][i]) % alpha_len))
-                
-            if ext_eucl_iter[0] != 1:
-                inverted_key = zeros((len(key), len(key)))
-                return inverted_key
-            elif ii != i:
-                key_identity_matrix[i, :] = ((key_identity_matrix[i, :] + key_identity_matrix[ii, :]) % alpha_len)
-                
-            key_identity_matrix[i, :] = ((ext_eucl_iter[2] * key_identity_matrix[i, :]) % alpha_len)
-            
-            for j in range(len(key)):
-                if j != i:
-                    key_identity_matrix[j, :] = ((key_identity_matrix[j, :] - key_identity_matrix[j][i] * key_identity_matrix[i, :]) % alpha_len)
-
+        key_identity_matrix = ModMatIter(key_identity_matrix, alpha_len, key)
+        if count_nonzero(key_identity_matrix) == 0:
+            return zeros((len(key), len(key)))
         inverted_key = key_identity_matrix[:, len(key): (2 * len(key))]
 
         return inverted_key
