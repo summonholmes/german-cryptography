@@ -9,8 +9,7 @@ def ModMatInv(key, alpha_len):
     ext_eucl_determinant = ExtendedEuclidean(alpha_len, key_determinant)
 
     if ext_eucl_determinant[0] != 1:
-        key_invalid = zeros((len(key), len(key)))
-        return key_invalid
+        return zeros((len(key), len(key)))
     else:
         key_identity_matrix = ModMatIter(key_identity_matrix, alpha_len, key)
         if count_nonzero(key_identity_matrix) == 0:
