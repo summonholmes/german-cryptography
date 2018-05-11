@@ -1,13 +1,13 @@
 function ASCII_30_Dec(ciphertext_ascii)
-    for i in ciphertext_ascii
-        if i == 196
-            i = 91
-        elseif i == 214
-            i = 92
-        elseif i == 220
-            i = 93
-        elseif i == 223
-            i = 94
+    for i = 1:length(ciphertext_ascii)
+        if ciphertext_ascii[i] == 196
+            ciphertext_ascii[i] = 91
+        elseif ciphertext_ascii[i] == 214
+            ciphertext_ascii[i] = 92
+        elseif ciphertext_ascii[i] == 220
+            ciphertext_ascii[i] = 93
+        elseif ciphertext_ascii[i] == 223
+            ciphertext_ascii[i] = 94
         end
     end
     return ciphertext_ascii

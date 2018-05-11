@@ -22,17 +22,10 @@ plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 magnitude_of_shift = 23
 ciphertext_ascii_30 = EncryptShift_German(plaintext_ascii_30, magnitude_of_shift)
 ciphertext_ascii = ASCII_30_Enc(ciphertext_ascii_30)
-ciphertext_ascii_30 = ASCII_30_Dec(ciphertext_ascii)
+ciphertext = join([Char(i) for i in ciphertext_ascii])
 
 # Decrypted Ciphertext
+ciphertext_ascii_30 = ASCII_30_Dec(ciphertext_ascii)
 dectext_ascii_30 = DecryptShift_German(ciphertext_ascii_30, magnitude_of_shift)
 dectext_ascii = ASCII_30_Del(dectext_ascii_30)
-
-# Finalize
-plaintext_30 = join([Char(i) for i in plaintext_ascii_30])
-ciphertext = join([Char(i) for i in ciphertext_ascii])
-ciphertext_30 = join([Char(i) for i in ciphertext_ascii_30])
 dectext = join([Char(i) for i in dectext_ascii])
-dectext_30 = join([Char(i) for i in dectext_ascii_30])
-
-# Print Results

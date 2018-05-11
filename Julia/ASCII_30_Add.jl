@@ -1,13 +1,13 @@
 function ASCII_30_Add(plaintext_ascii)
-    for i in plaintext_ascii
-        if i == 228
-            i = 123
-        elseif i == 246
-            i = 124
-        elseif i == 252
-            i = 125
-        elseif i == 223
-            i = 126
+    for i = 1:length(plaintext_ascii)
+        if plaintext_ascii[i] == 228
+            plaintext_ascii[i] = 123
+        elseif plaintext_ascii[i] == 246
+            plaintext_ascii[i] = 124
+        elseif plaintext_ascii[i] == 252
+            plaintext_ascii[i] = 125
+        elseif plaintext_ascii[i] == 223
+            plaintext_ascii[i] = 126
         end
     end
     return plaintext_ascii
