@@ -1,35 +1,35 @@
-void ascii_30_add(int *nachtlied_ascii)
+void ascii_30_add(int *plaintext_ascii)
 {
     /* Two concurrent pointers for character traversal */
-    int *plaintext_ascii = nachtlied_ascii, *plaintext_ascii_30 = nachtlied_ascii;
+    int *plaintext = plaintext_ascii, *plaintext_30 = plaintext_ascii;
 
-    while (*plaintext_ascii)
+    while (*plaintext)
     {
-        if (*plaintext_ascii == -61)
+        if (*plaintext == -61)
         {
-            plaintext_ascii++;
-            if (*plaintext_ascii == -92)
+            plaintext++;
+            if (*plaintext == -92)
             {
-                *plaintext_ascii_30++ = 123;
+                *plaintext_30++ = 123;
             }
-            else if (*plaintext_ascii == -74)
+            else if (*plaintext == -74)
             {
-                *plaintext_ascii_30++ = 124;
+                *plaintext_30++ = 124;
             }
-            else if (*plaintext_ascii == -68)
+            else if (*plaintext == -68)
             {
-                *plaintext_ascii_30++ = 125;
+                *plaintext_30++ = 125;
             }
-            else if (*plaintext_ascii == -97)
+            else if (*plaintext == -97)
             {
-                *plaintext_ascii_30++ = 126;
+                *plaintext_30++ = 126;
             }
-            plaintext_ascii++;
+            plaintext++;
         }
         else
         {
-            *plaintext_ascii_30++ = *plaintext_ascii++;
+            *plaintext_30++ = *plaintext++;
         }
     }
-    plaintext_ascii_30 = 0;
+    plaintext_30 = 0;
 }

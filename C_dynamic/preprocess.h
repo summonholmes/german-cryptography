@@ -1,10 +1,10 @@
 #include <ctype.h>
 
-void preprocess(char *nachtlied_text, int *nachtlied_size)
+int preprocess(char *nachtlied_text)
 {
     /* Two concurrent pointers for character traversal */
     char *rawtext = nachtlied_text, *plaintext = nachtlied_text;
-    *nachtlied_size = 0; /* For reallocation */
+    int nachtlied_processed_size = 0; /* For reallocation */
 
     while (*rawtext)
     {
@@ -16,7 +16,7 @@ void preprocess(char *nachtlied_text, int *nachtlied_size)
         else
         {
             /* Increment malloc counter */
-            *nachtlied_size += 1;
+            nachtlied_processed_size += 1;
             if (isupper((unsigned char)*rawtext))
             {
                 /* Convert upper to lower */
@@ -38,4 +38,6 @@ void preprocess(char *nachtlied_text, int *nachtlied_size)
     }
     /* Cleanup  */
     *plaintext = 0;
+
+    return nachtlied_processed_size;
 }

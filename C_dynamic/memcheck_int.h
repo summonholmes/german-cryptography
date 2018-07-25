@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void memcheck_int(int *nachtlied_ascii)
+void memcheck_int(int *ascii_array)
 {
-    if (nachtlied_ascii == NULL)
+    if (ascii_array == NULL)
     {
         fprintf(stderr, "malloc failed\n");
         exit(-1);

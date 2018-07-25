@@ -1,13 +1,13 @@
 #include "true_modulus.h"
 
-void encrypt_shift(int *nachtlied_ascii)
+void encrypt_shift(int *plaintext_ascii)
 {
-    int *nachtlied_plain = nachtlied_ascii, *nachtlied_encrypt = nachtlied_ascii;
+    int *plain = plaintext_ascii, *encrypt = plaintext_ascii;
     int shift = 23;
 
-    while (*nachtlied_plain)
+    while (*plain)
     {
-        *nachtlied_encrypt++ = true_modulus((*nachtlied_plain++ - 97 + shift), 30) + 65;
+        *encrypt++ = true_modulus((*plain++ - 97 + shift), 30) + 65;
     }
-    *nachtlied_encrypt = 0;
+    *encrypt = 0;
 }

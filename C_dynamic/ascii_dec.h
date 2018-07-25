@@ -1,35 +1,35 @@
-void ascii_dec(int *nachtlied_ascii)
+void ascii_dec(int *ciphertext_ascii)
 {
     /* Two concurrent pointers for character traversal */
-    int *dectext_ascii_30 = nachtlied_ascii, *dectext_ascii = nachtlied_ascii;
+    int *dectext = ciphertext_ascii, *dectext_30 = ciphertext_ascii;
 
-    while (*dectext_ascii_30)
+    while (*dectext)
     {
-        if (*dectext_ascii_30 == -61)
+        if (*dectext == -61)
         {
-            dectext_ascii_30++;
-            if (*dectext_ascii_30 == -124)
+            dectext++;
+            if (*dectext == -124)
             {
-                *dectext_ascii++ = 91;
+                *dectext_30++ = 91;
             }
-            else if (*dectext_ascii_30 == -106)
+            else if (*dectext == -106)
             {
-                *dectext_ascii++ = 92;
+                *dectext_30++ = 92;
             }
-            else if (*dectext_ascii_30 == -100)
+            else if (*dectext == -100)
             {
-                *dectext_ascii++ = 93;
+                *dectext_30++ = 93;
             }
-            else if (*dectext_ascii_30 == -97)
+            else if (*dectext == -97)
             {
-                *dectext_ascii++ = 94;
+                *dectext_30++ = 94;
             }
-            dectext_ascii_30++;
+            dectext++;
         }
         else
         {
-            *dectext_ascii++ = *dectext_ascii_30++;
+            *dectext_30++ = *dectext++;
         }
     }
-    *dectext_ascii = 0;
+    *dectext_30 = 0;
 }

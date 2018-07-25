@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void memcheck_char(char *nachtlied_text)
+void memcheck_char(char *char_array)
 {
-    if (nachtlied_text == NULL)
+    if (char_array == NULL)
     {
         fprintf(stderr, "malloc failed\n");
         exit(-1);

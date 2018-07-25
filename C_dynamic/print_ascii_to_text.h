@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-void print_ascii_to_text(int *nachtlied_ascii, int *nachtlied_size)
+void print_ascii_to_text(int *ascii_array, const int *nachtlied_processed_size)
 {
-    for (int i = 0; i < *nachtlied_size; i++)
+    for (int i = 0; i < *nachtlied_processed_size; i++)
     {
-        printf("%c", nachtlied_ascii[i]);
+        printf("%c", ascii_array[i]);
     }
     printf("\n\n");
 }
