@@ -19,10 +19,10 @@ void memcheck_int(int *);
 void preprocess(char *, int *);
 void print_ascii_to_text(int *, int *);
 void text_to_ascii(char *, int *, int *);
-void ascii_30_add(int *, int *);
+void ascii_30_add(int *);
 void encrypt_shift(int *);
 void ascii_enc(int *, int *);
-void ascii_dec(int *, int *);
+void ascii_dec(int *);
 void decrypt_shift(int *);
 void ascii_30_del(int *, int *);
 
@@ -48,8 +48,6 @@ int main(void)
 
     /* Processing & Reallocation */
     preprocess(nachtlied_text, &nachtlied_size);
-    nachtlied_text = (char *)realloc(nachtlied_text, (nachtlied_size + 1) * sizeof(char));
-    memcheck_char(nachtlied_text);
 
     /* Allocate more memory; reallocation not needed on these */
     int *nachtlied_ascii = (int *)malloc((nachtlied_size + 1) * sizeof(int));
@@ -69,9 +67,7 @@ int main(void)
     print_ascii_to_text(nachtlied_ascii, &nachtlied_size);
 
     /* Localize umlaut and eszett characters */
-    ascii_30_add(nachtlied_ascii, &nachtlied_size);
-    nachtlied_ascii = (int *)realloc(nachtlied_ascii, (nachtlied_size + 1) * sizeof(int));
-    memcheck_int(nachtlied_ascii);
+    ascii_30_add(nachtlied_ascii);
 
     /* Encrypt */
     encrypt_shift(nachtlied_ascii);
@@ -86,9 +82,7 @@ int main(void)
     print_ascii_to_text(ciphertext_ascii, &nachtlied_size);
 
     /* Localize umlaut and eszett characters */
-    ascii_dec(ciphertext_ascii, &nachtlied_size);
-    ciphertext_ascii = (int *)realloc(ciphertext_ascii, (nachtlied_size + 1) * sizeof(int));
-    memcheck_int(nachtlied_ascii);
+    ascii_dec(ciphertext_ascii);
 
     /* Decrypt */
     decrypt_shift(ciphertext_ascii);

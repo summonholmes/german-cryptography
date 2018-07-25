@@ -1,8 +1,7 @@
-void ascii_30_add(int *nachtlied_ascii, int *nachtlied_size)
+void ascii_30_add(int *nachtlied_ascii)
 {
     /* Two concurrent pointers for character traversal */
     int *plaintext_ascii = nachtlied_ascii, *plaintext_ascii_30 = nachtlied_ascii;
-    *nachtlied_size = 0;
 
     while (*plaintext_ascii)
     {
@@ -26,12 +25,10 @@ void ascii_30_add(int *nachtlied_ascii, int *nachtlied_size)
                 *plaintext_ascii_30++ = 126;
             }
             plaintext_ascii++;
-            *nachtlied_size += 1;
         }
         else
         {
             *plaintext_ascii_30++ = *plaintext_ascii++;
-            *nachtlied_size += 1;
         }
     }
     plaintext_ascii_30 = 0;

@@ -1,8 +1,7 @@
-void ascii_dec(int *nachtlied_ascii, int *nachtlied_size)
+void ascii_dec(int *nachtlied_ascii)
 {
     /* Two concurrent pointers for character traversal */
     int *dectext_ascii_30 = nachtlied_ascii, *dectext_ascii = nachtlied_ascii;
-    *nachtlied_size = 0;
 
     while (*dectext_ascii_30)
     {
@@ -26,12 +25,10 @@ void ascii_dec(int *nachtlied_ascii, int *nachtlied_size)
                 *dectext_ascii++ = 94;
             }
             dectext_ascii_30++;
-            *nachtlied_size += 1;
         }
         else
         {
             *dectext_ascii++ = *dectext_ascii_30++;
-            *nachtlied_size += 1;
         }
     }
     *dectext_ascii = 0;
