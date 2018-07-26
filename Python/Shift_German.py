@@ -7,25 +7,23 @@ from ASCII_30_Del import ASCII_30_Del
 from EncryptShift_German import EncryptShift_German
 from DecryptShift_German import DecryptShift_German
 
-f = open("nachtlied.txt", 'r', 'iso-8859-1')
-rawtext= f.read()
-f.close()
-
-shift_k = 23
+file = open("nachtlied.txt", 'r', 'iso-8859-1')
+rawtext = file.read()
+file.close()
 
 plaintext = PreProcess_German(rawtext)
-plaintext_ascii = [ord(i) for i in plaintext]
+plaintext_ascii = list(map(ord, plaintext))
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
-ciphertext_ascii_30 = EncryptShift_German(plaintext_ascii_30, shift_k)
+ciphertext_ascii_30 = EncryptShift_German(plaintext_ascii_30, 23)
 ciphertext_ascii = ASCII_Enc_German(ciphertext_ascii_30)
 ciphertext_ascii_dec_30 = ASCII_Dec_German(ciphertext_ascii)
 
-dectext_ascii_30 = DecryptShift_German(ciphertext_ascii_dec_30, shift_k)
+dectext_ascii_30 = DecryptShift_German(ciphertext_ascii_dec_30, 23)
 dectext_ascii = ASCII_30_Del(dectext_ascii_30)
 
-ciphertext = ''.join(chr(i) for i in ciphertext_ascii)
-dectext = ''.join(chr(i) for i in dectext_ascii)
+ciphertext = ''.join(map(chr, ciphertext_ascii))
+dectext = ''.join(map(chr, dectext_ascii))
 
 print(plaintext[300:400])
 print(ciphertext[300:400])

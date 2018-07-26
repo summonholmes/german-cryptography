@@ -1,23 +1,20 @@
-def ExtendedEuclidean(a, b):
-    r0 = a
-    r1 = b
-    x0 = 1
-    x1 = 0
-    y0 = 0
-    y1 = 1
-    z = [r0, x0, y0]
+from math import floor
 
-    while r1 > 0:
-        r = r0 % r1
-        q = (r0 - r) / r1
-        x = x0 - q * x1
-        y = y0 - q * y1
-        z = [r1, x1, y1]
-        x0 = x1
-        y0 = y1
-        x1 = x
-        y1 = y
-        r0 = r1
-        r1 = r
 
-    return z
+def ExtendedEuclidean(alpha_len, a):
+    remainder = [alpha_len, a]
+    alpha_len_s = [1, 0]
+    a_t = [0, 1]
+    quotient = []
+
+    while remainder[-1] > 0:
+        quotient.append(floor(remainder[-2] / remainder[-1]))
+        remainder.append(remainder[-2] % remainder[-1])
+        alpha_len_s.append(alpha_len_s[-2] - quotient[-1] * alpha_len_s[-1])
+        a_t.append(a_t[-2] - quotient[-1] * a_t[-1])
+
+    return {
+        "gcd": remainder[-2],
+        "s": alpha_len_s[-2],
+        "t": a_t[-2],
+    }

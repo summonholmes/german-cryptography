@@ -14,7 +14,7 @@ x = f.read()
 f.close()
 
 plaintext = PreProcess_German(x)
-plaintext_ascii = [ord(i) for i in plaintext]
+plaintext_ascii = list(map(ord, plaintext))
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
 [key, inverted_key] = Generate(8, 30)
@@ -26,8 +26,8 @@ ciphertext_ascii = ASCII_Enc_German([(i + 65) for i in ciphertext_ascii_30])
 dectext_ascii_30 = EncryptDecryptHill_German(ciphertext_ascii_30, inverted_key, 30)
 dectext_ascii = ASCII_30_Del([(i + 97) for i in dectext_ascii_30])
 
-ciphertext = ''.join(chr(i) for i in ciphertext_ascii)
-dectext = ''.join(chr(i) for i in dectext_ascii)
+ciphertext = ''.join(map(chr, ciphertext_ascii))
+dectext = ''.join(map(chr, dectext_ascii))
 
 print(plaintext[300:400])
 print(ciphertext[300:400])
