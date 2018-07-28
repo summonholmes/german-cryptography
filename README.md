@@ -6,7 +6,7 @@ The process utilizes some additional operations to substitute these foreign char
 
 The algorithms work by substituting the German characters with the additional ASCII characters at the ends of these English ASCII ranges, performing encryption, then substituting the German characters back in place.  For decryption, the German characters are subsituted with the end range ascii characters again, decryption is performed, then the German characters are again substituted back in place.
 
-The multiple implementations contain many notable differences, due to the inherent properties of these languages.  For instance, many of the Python functions are reduced to 1-2 lines using list comprehension methods; while C/C++ utilizes passing by reference via pointers, and forces a more complex approach due to UTF-8 incompatibility.
+The multiple implementations contain many notable differences, due to the inherent properties of these languages.  For instance, many of the Python functions are reduced to 1-2 lines using list comprehension methods; R code is vectorized; and C/C++ utilizes passing by reference via pointers, forcing a more complex approach due to UTF-8 incompatibility.
 
 The 'nachtlied.txt' excerpt from Thus Spoke Zarathustra by Friedrich Nietzsche is included, so that the algorithms may be readily tested.  The provided scripts of interest are those that are titled with the cipher name, which provide examples of full encryption/decryption routines.  
 
@@ -31,11 +31,11 @@ $ python3 /path/to/python/Shift_German.py
 ```
 
 **R**  
-Choose a cipher to run from the command line or RStudio.  Note that in RStudio, you will have to change the source paths at the beginning of each file.  
+Choose a cipher to run from the command line or RStudio.  Note that in RStudio, you will have to change the source paths at the beginning of each file, or create a project in the 'R' directory.  
 
 Example (RStudio):
 ```
-  Change:
+  If preferred, change:
 1 source('PreProcess_German.r')
   To:
 1 source('/path/to/r/PreProcess_German.r')
