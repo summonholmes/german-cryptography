@@ -7,14 +7,15 @@ source('EncryptAffine_German.r')
 source('DecryptAffine_German.r')
 
 
-f <- read.delim("nachtlied-utf-8.txt", comment.char="#")
-rawtext <- paste(unlist(f), collapse = " ")
+file <- read.delim("nachtlied-utf-8.txt")
+rawtext <- paste(unlist(file), collapse = "")
 
 plaintext <- PreProcess_German(rawtext)
 plaintext_ascii <- utf8ToInt(plaintext)
 plaintext_ascii_30 <- ASCII_30_Add(plaintext_ascii)
 
-ciphertext_ascii_30 <- EncryptAffine_German(plaintext_ascii_30, 7, 5)
+ciphertext_ascii_30 <-
+  EncryptAffine_German(plaintext_ascii_30, 7, 5)
 ciphertext_ascii <- ASCII_Enc_German(ciphertext_ascii_30)
 ciphertext_ascii_dec <- ASCII_Dec_German(ciphertext_ascii_30)
 
