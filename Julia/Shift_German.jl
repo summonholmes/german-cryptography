@@ -30,6 +30,6 @@ dectext_ascii = ASCII_30_Del(dectext_ascii_30)
 dectext = join([Char(i) for i in dectext_ascii])
 
 # Print results
-plaintext[301:400]
-ciphertext[301:400]
-dectext[301:400]
+print(plaintext[301:400])
+print(ciphertext[301:400])
+print(dectext[301:400])
