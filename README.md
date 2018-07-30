@@ -52,7 +52,7 @@ Choose a cipher to run from the command line or IDE.
 
 Example:
 ```
-$ julia /path/to/python/Shift_German.jl
+$ julia /path/to/julia/Shift_German.jl
 ```
 
 Troubleshooting
