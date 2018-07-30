@@ -1,14 +1,7 @@
 function ASCII_30_Enc(ciphertext_ascii_30)
-    for i = 1:length(ciphertext_ascii_30)
-        if ciphertext_ascii_30[i] == 91
-            ciphertext_ascii_30[i] = 196
-        elseif ciphertext_ascii_30[i] == 92
-            ciphertext_ascii_30[i] = 214
-        elseif ciphertext_ascii_30[i] == 93
-            ciphertext_ascii_30[i] = 220
-        elseif ciphertext_ascii_30[i] == 94
-            ciphertext_ascii_30[i] = 223
-        end
-    end
+    ciphertext_ascii_30[find(x -> x == 91, ciphertext_ascii_30)] = 196
+    ciphertext_ascii_30[find(x -> x == 92, ciphertext_ascii_30)] = 214
+    ciphertext_ascii_30[find(x -> x == 93, ciphertext_ascii_30)] = 220
+    ciphertext_ascii_30[find(x -> x == 94, ciphertext_ascii_30)] = 223
     return ciphertext_ascii_30
 end

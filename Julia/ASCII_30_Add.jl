@@ -1,14 +1,7 @@
 function ASCII_30_Add(plaintext_ascii)
-    for i = 1:length(plaintext_ascii)
-        if plaintext_ascii[i] == 228
-            plaintext_ascii[i] = 123
-        elseif plaintext_ascii[i] == 246
-            plaintext_ascii[i] = 124
-        elseif plaintext_ascii[i] == 252
-            plaintext_ascii[i] = 125
-        elseif plaintext_ascii[i] == 223
-            plaintext_ascii[i] = 126
-        end
-    end
+    plaintext_ascii[find(x -> x == 228, plaintext_ascii)] = 123
+    plaintext_ascii[find(x -> x == 246, plaintext_ascii)] = 124
+    plaintext_ascii[find(x -> x == 252, plaintext_ascii)] = 125
+    plaintext_ascii[find(x -> x == 223, plaintext_ascii)] = 126
     return plaintext_ascii
 end
