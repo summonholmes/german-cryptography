@@ -8,7 +8,7 @@ def ModMatInv(key, alpha_len):
     key_determinant = round(linalg.det(key)) % alpha_len
     ext_eucl_determinant = ExtendedEuclidean(alpha_len, key_determinant)
 
-    if ext_eucl_determinant[0] != 1:
+    if ext_eucl_determinant["gcd"] != 1:
         return zeros((len(key), len(key)))
     else:
         key_identity_matrix = ModMatIter(key_identity_matrix, alpha_len, key)

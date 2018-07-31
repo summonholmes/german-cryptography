@@ -9,11 +9,11 @@ from Generate import Generate
 
 # Hill cipher for the German Alphabet
 
-f = open("nachtlied.txt", 'r', 'iso-8859-1')
-x = f.read()
-f.close()
+file = open("nachtlied.txt", 'r', 'iso-8859-1')
+rawtext = file.read()
+file.close()
 
-plaintext = PreProcess_German(x)
+plaintext = PreProcess_German(rawtext)
 plaintext_ascii = list(map(ord, plaintext))
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 
