@@ -1,15 +1,12 @@
-from ExtendedEuclidean import ExtendedEuclidean
 from numpy import zeros
 
 
-def ModMatExt(key_identity_matrix, alpha_len, key, i, ext_eucl_i, ext_eucl):
-    if ext_eucl["gcd"] != 1:
-        return zeros((len(key), len(key)))
-    elif ext_eucl_i != i:
-        key_identity_matrix[i, :] = (
-            (key_identity_matrix[i, :] + key_identity_matrix[ext_eucl_i, :]) % alpha_len)
-
-    key_identity_matrix[i, :] = (
-        (ext_eucl["t"] * key_identity_matrix[i, :]) % alpha_len)
-
-    return key_identity_matrix
+def ModMatExt(key_ident, key, key_ident_ext, key_ident_i, i, alpha_len,
+              matrix_len):
+    if key_ident_ext["gcd"] != 1:
+        return zeros((matrix_len, matrix_len))
+    elif key_ident_i != i:
+        key_ident[i, :] = (
+            (key_ident[i, :] + key_ident[key_ident_i, :]) % alpha_len)
+    key_ident[i, :] = ((key_ident_ext["t"] * key_ident[i, :]) % alpha_len)
+    return key_ident

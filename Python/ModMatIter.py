@@ -1,24 +1,15 @@
 from ExtendedEuclidean import ExtendedEuclidean
-from numpy import zeros
+from ModMatIden import ModMatIden
 from ModMatExt import ModMatExt
+from ModMatShape import ModMatShape
 
 
-def ModMatIter(key_identity_matrix, alpha_len, key):
-    for i in range(len(key)):
-        ext_eucl = ExtendedEuclidean(alpha_len, key_identity_matrix[i][i])
-        ext_eucl_i = i
-
-        while ext_eucl["gcd"] != 1 and ext_eucl_i < (len(key) - 1):
-            ext_eucl_i += 1
-            ext_eucl = ExtendedEuclidean(alpha_len, ((
-                key_identity_matrix[ext_eucl_i][i] + key_identity_matrix[i][i]) % alpha_len))
-
-        key_identity_matrix = ModMatExt(
-            key_identity_matrix, alpha_len, key, i, ext_eucl_i, ext_eucl)
-
-        for j in range(len(key)):
-            if j != i:
-                key_identity_matrix[j, :] = (
-                    (key_identity_matrix[j, :] - key_identity_matrix[j][i] * key_identity_matrix[i, :]) % alpha_len)
-
-    return key_identity_matrix
+def ModMatIter(key, key_ident, alpha_len, matrix_len):
+    for i in range(matrix_len):
+        key_ident_ext = ExtendedEuclidean(alpha_len, key_ident[i][i])
+        key_ident_i, key_ident_ext = ModMatIden(key_ident, key_ident_ext, i,
+                                                alpha_len, matrix_len)
+        key_ident = ModMatExt(key_ident, key, key_ident_ext, key_ident_i, i,
+                              alpha_len, matrix_len)
+        key_ident = ModMatShape(key_ident, i, alpha_len, matrix_len)
+    return key_ident

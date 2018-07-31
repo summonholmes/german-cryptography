@@ -1,19 +1,13 @@
-from numpy import identity, linalg, zeros, count_nonzero, append as np_append
+from numpy import identity, append as np_append
+from numpy.linalg import det
 from ExtendedEuclidean import ExtendedEuclidean
-from ModMatIter import ModMatIter
+from ModMatInit import ModMatInit
 
 
-def ModMatInv(key, alpha_len):
-    key_identity_matrix = np_append(key, identity(len(key)), axis=1)
-    key_determinant = round(linalg.det(key)) % alpha_len
-    ext_eucl_determinant = ExtendedEuclidean(alpha_len, key_determinant)
-
-    if ext_eucl_determinant["gcd"] != 1:
-        return zeros((len(key), len(key)))
-    else:
-        key_identity_matrix = ModMatIter(key_identity_matrix, alpha_len, key)
-        if count_nonzero(key_identity_matrix) == 0:
-            return zeros((len(key), len(key)))
-        inverted_key = key_identity_matrix[:, len(key): (2 * len(key))]
-
-        return inverted_key
+def ModMatInv(key, alpha_len, matrix_len):
+    key_ident = np_append(key, identity(matrix_len), axis=1)
+    key_det = round(det(key)) % alpha_len
+    key_det_ext = ExtendedEuclidean(alpha_len, key_det)
+    inverted_key = ModMatInit(key, key_ident, key_det_ext, alpha_len,
+                              matrix_len)
+    return inverted_key
