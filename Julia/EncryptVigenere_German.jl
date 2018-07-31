@@ -1,5 +1,7 @@
 function EncryptVigenere_German(plaintext_ascii_30, keyword)
     keyword_ascii = [Int(i) - 97 for i in keyword]
-    return [mod.((plain - 97) + keyword_ascii[mod.((i - 1), length(keyword)) + 1], 30) 
-        for (i, plain) in enumerate(plaintext_ascii_30)] + 65
+    keyword_ascii = repmat(keyword_ascii, cld(length(plaintext_ascii_30), length(keyword_ascii)))
+    pop_length = length(keyword_ascii) - length(plaintext_ascii_30) - 1
+    keyword_ascii = deleteat!(keyword_ascii, length(keyword_ascii) - pop_length:length(keyword_ascii))
+    return mod.((plaintext_ascii_30 - 97) + keyword_ascii, 30) + 65
 end
