@@ -47,7 +47,7 @@ $ cd /path/to/r/
 $ Rscript Shift_German.py
 ```
 
-**Julia+**  
+**Julia**  
 Choose a cipher to run from the command line or IDE.  
 
 Example:
@@ -64,11 +64,11 @@ Depending on your environment, the default scripts and functions may not work co
 
 2. For all the required Python scripts: Shift_German.py, Affine_German.py, Vigenere_German.py, Substitution_German.py, and Hill_German.py; find this line: 
 ```
-f = open("nachtlied.txt", 'r', 'iso-8859-1')  
+file = open("nachtlied.txt", 'r', 'iso-8859-1')  
 ```
 After completing 1., replace this line with:  
 ```
-f = open("nachtlied.txt", 'r', 'utf-8')  
+file = open("nachtlied.txt", 'r', 'utf-8')  
 ```
 License
 ===
