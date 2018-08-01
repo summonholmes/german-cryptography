@@ -13,14 +13,18 @@ key <- Generate(8, 30)
 plaintext <- PreProcess_German(rawtext)
 plaintext_ascii <- utf8ToInt(plaintext)
 plaintext_ascii_30 <- ASCII_30_Add(plaintext_ascii)
+plaintext_ascii_30 <- plaintext_ascii_30 - 97
 
 ciphertext_ascii_30 <-
-  EncryptDecryptHill_German((plaintext_ascii_30 - 97), key[1], 30, 8)
-ciphertext_ascii <- ASCII_Enc_German(ciphertext_ascii_30 + 65)
-
+  EncryptDecryptHill_German(plaintext_ascii_30, key[1], 30, 8)
 dectext_ascii_30 <-
   EncryptDecryptHill_German(ciphertext_ascii_30, key[2], 30, 8)
-dectext_ascii <- ASCII_30_Del(dectext_ascii_30 + 97)
+
+ciphertext_ascii_30 <- ciphertext_ascii_30 + 65
+ciphertext_ascii <- ASCII_Enc_German(ciphertext_ascii_30)
+
+dectext_ascii_30 <- dectext_ascii_30 + 97
+dectext_ascii <- ASCII_30_Del(dectext_ascii_30)
 
 ciphertext <- intToUtf8(ciphertext_ascii)
 dectext <- intToUtf8(dectext_ascii)
