@@ -1,15 +1,22 @@
-ModMatExt <- function (key_identity_matrix, alpha_len, key, i, ext_eucl_i, ext_eucl)
-{
-  if (ext_eucl[1] != 1)
+ModMatExt <-
+  function (key_ident,
+            key,
+            key_ident_ext_i,
+            i,
+            alpha_len,
+            matrix_len)
   {
-    inverted_key <- matrix(0, nrow = nrow(key), ncol = nrow(key))
-    return (inverted_key)
+    if (key_ident_ext_i[[1]][["gcd"]] != 1)
+    {
+      inverted_key <- key * 0
+      return (inverted_key)
+    }
+    else if (key_ident_ext_i[[2]] != i)
+    {
+      key_ident[i,] <-
+        (key_ident[i,] + key_ident[key_ident_ext_i[[2]],]) %% alpha_len
+    }
+    key_ident[i,] <-
+      (key_ident_ext_i[[1]][["t"]] * key_ident[i,]) %% alpha_len
+    return (key_ident)
   }
-  else if (ext_eucl_i != i)
-  {
-    key_identity_matrix[i,] <- (key_identity_matrix[i,] + key_identity_matrix[ext_eucl_i,]) %% alpha_len
-  }
-  key_identity_matrix[i,] <- (ext_eucl[3] * key_identity_matrix[i,]) %% alpha_len
-  
-  return (key_identity_matrix)
-}

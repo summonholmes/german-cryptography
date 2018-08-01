@@ -1,30 +1,25 @@
 source('ExtendedEuclidean.r')
+source("ModMatIden.R")
 source('ModMatExt.r')
+source('ModMatShape.R')
 
 
-ModMatIter <- function(key_identity_matrix, alpha_len, key)
-{
-  for (i in 1 : nrow(key))
+ModMatIter <-
+  function(key,
+           key_ident,
+           alpha_len,
+           matrix_len)
   {
-    ext_eucl <- ExtendedEuclidean(alpha_len, key_identity_matrix[i, i])
-    ext_eucl_i <- i
-    
-    while (ext_eucl[1] != 1 && ext_eucl_i < nrow(key))
+    for (i in 1:matrix_len)
     {
-      ext_eucl_i <- ext_eucl_i + 1
-      ext_eucl <- ExtendedEuclidean(alpha_len, ((key_identity_matrix[ext_eucl_i, i] + key_identity_matrix[i, i]) %% alpha_len))
+      key_ident_ext <-
+        ExtendedEuclidean(alpha_len, key_ident[i, i])
+      key_ident_ext_i <-
+        ModMatIden(key_ident, key_ident_ext, i, alpha_len, matrix_len)
+      key_ident <-
+        ModMatExt(key_ident, key, key_ident_ext_i, i, alpha_len,
+                  matrix_len)
+      key_ident <- ModMatShape(key_ident, i, alpha_len, matrix_len)
     }
-    
-    key_identity_matrix <- ModMatExt(key_identity_matrix, alpha_len, key, i, ext_eucl_i, ext_eucl)
-    
-    for (j in 1 : nrow(key))
-    {
-      if (j != i)
-      {
-        key_identity_matrix[j,] <- (key_identity_matrix[j,] - (key_identity_matrix[j, i]) * key_identity_matrix[i,]) %% alpha_len
-      }
-    }
+    return(key_ident)
   }
-  
-  return(key_identity_matrix)
-}

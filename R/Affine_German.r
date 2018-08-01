@@ -6,7 +6,6 @@ source('ASCII_Dec_German.r')
 source('EncryptAffine_German.r')
 source('DecryptAffine_German.r')
 
-
 file <- read.delim("nachtlied-utf-8.txt")
 rawtext <- paste(unlist(file), collapse = "")
 

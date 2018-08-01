@@ -6,7 +6,6 @@ source('ASCII_Dec_German.r')
 source('EncryptSubstitution_German.r')
 source('DecryptSubstitution_German.r')
 
-
 file <- read.delim("nachtlied-utf-8.txt")
 rawtext <- paste(unlist(file), collapse = "")
 key_list <- (sample(30, 30, replace = FALSE, prob = NULL)) + 96
