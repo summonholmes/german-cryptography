@@ -13,7 +13,6 @@ file.close()
 
 plaintext = PreProcess_German(rawtext)
 key, inverted_key = Generate(8, 30)
-
 plaintext_ascii = list(map(ord, plaintext))
 plaintext_ascii_30 = ASCII_30_Add(plaintext_ascii)
 plaintext_ascii_30 = [(i - 97) for i in plaintext_ascii_30]
