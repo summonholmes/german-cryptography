@@ -25,4 +25,4 @@ var dectext_ascii = dectext_ascii_30.map(ASCII_30_Del);
 var dectext = String.fromCharCode.apply(null, dectext_ascii);
 
 // Decrypt Ciphertext
-console.log(dectext)
+console.log(dectext);
