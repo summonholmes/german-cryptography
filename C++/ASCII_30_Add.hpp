@@ -1,29 +1,32 @@
-void ASCII_30_Add(int *plaintext_ascii, int *array_len, int *plaintext_ascii_30)
+void ASCII_30_Add(int *plaintext_ascii, int *text_len, int *plaintext_ascii_30)
 {
-    for (int i = 0; i < *array_len; i++)
+    int j = 0;
+    for (int i = 0; i < *text_len; i++)
     {
         if (plaintext_ascii[i] == -61)
         {
             if (plaintext_ascii[i + 1] == -92)
             {
-                plaintext_ascii_30[i] = 123;
+                plaintext_ascii_30[j] = 123;
             }
             else if (plaintext_ascii[i + 1] == -74)
             {
-                plaintext_ascii_30[i] = 124;
+                plaintext_ascii_30[j] = 124;
             }
             else if (plaintext_ascii[i + 1] == -68)
             {
-                plaintext_ascii_30[i] = 125;
+                plaintext_ascii_30[j] = 125;
             }
             else if (plaintext_ascii[i + 1] == -97)
             {
-                plaintext_ascii_30[i] = 126;
+                plaintext_ascii_30[j] = 126;
             }
+            j++;
         }
         else if (plaintext_ascii[i] > 96 && plaintext_ascii[i] < 123)
         {
-            plaintext_ascii_30[i] = plaintext_ascii[i];
+            plaintext_ascii_30[j] = plaintext_ascii[i];
+            j++;
         }
     }
 }
