@@ -1,4 +1,4 @@
-import { mod } from "./mod.js"
+import { mod } from "./mod.js";
 
 export function EncryptShift_German(num) {
     // Shift all characters and convert to upper case
