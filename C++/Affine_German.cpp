@@ -1,6 +1,5 @@
 // Imports
 #include <iostream>
-#include <cmath>
 #include "LoadFile.hpp"
 #include "PreProcess_German.hpp"
 #include "TextToASCII.hpp"
