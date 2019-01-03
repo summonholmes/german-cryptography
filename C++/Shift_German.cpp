@@ -1,8 +1,8 @@
 // Imports
 #include <iostream>
-#include <cmath>
 #include "LoadFile.hpp"
 #include "PreProcess_German.hpp"
+#include "TextToASCII.hpp"
 #include "ASCII_30_Add.hpp"
 #include "EncryptShift_German.hpp"
 #include "ASCII_Enc_German.hpp"
@@ -10,7 +10,6 @@
 #include "DecryptShift_German.hpp"
 #include "ASCII_30_Del.hpp"
 #include "ToString.hpp"
-#include "TextToASCII.hpp"
 
 // Shorten keywords
 using namespace std;

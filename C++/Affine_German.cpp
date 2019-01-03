@@ -1,82 +1,60 @@
+// Imports
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include <cmath>
-#include <algorithm>
-#include <cstring>
+#include "LoadFile.hpp"
 #include "PreProcess_German.hpp"
+#include "TextToASCII.hpp"
 #include "ASCII_30_Add.hpp"
 #include "EncryptAffine_German.hpp"
 #include "ASCII_Enc_German.hpp"
 #include "ASCII_Dec_German.hpp"
-#include "ExtendedEuclidean.hpp"
 #include "DecryptAffine_German.hpp"
 #include "ASCII_30_Del.hpp"
+#include "ToString.hpp"
 
+// Shorten keywords
 using namespace std;
 
+// Prototypes
+string LoadFile();
 void PreProcess_German(string *);
+void TextToASCII(int *, string *, int *);
 void ASCII_30_Add(int *, int *, int *);
-void EncryptAffine_German(int *, int *, int *, int *, int *);
 void ASCII_Enc_German(int *, int *, int *);
 void ASCII_Dec_German(int *, int *, int *);
-void ExtendedEuclidean(int *, int *, int *);
-void DecryptAffine_German(int *, int *, int *, int *, int *, int *, int *);
+void DecryptAffine_German(int *, int *, int *, int *, int *);
 void ASCII_30_Del(int *, int *, int *);
+string ToString(int *, int *);
 
 int main()
 {
-    ifstream get_file("nachtlied-utf-8.txt");
+    // Get the raw text, but name plaintext due to pointers
+    string plaintext = LoadFile();
 
-    if (!get_file)
-    {
-        cout << "Couldn't open the file";
-        return 0;
-    }
+    // Convert rawtext to plaintext
+    PreProcess_German(&plaintext);
 
-    stringstream f;
-    f << get_file.rdbuf();
-    get_file.close();
-
-    string plaintext = f.str();
-    string ciphertext = "";
-    string dectext = "";
-
+    // Declare required variables
+    int text_len = plaintext.length();
+    int plaintext_ascii[text_len], ciphertext_ascii[text_len], dectext_ascii[text_len];
+    int plaintext_ascii_30[text_len], ciphertext_ascii_30[text_len], dectext_ascii_30[text_len];
     int a = 7;
     int b = 5;
-    int alpha_len = 30;
-    int ext_eucl[3];
-    int array_len = plaintext.length();
-    int plaintext_ascii[array_len];
-    int plaintext_ascii_30[array_len];
-    int ciphertext_ascii_30[array_len];
-    int ciphertext_ascii[array_len];
-    int ciphertext_ascii_dec_30[array_len];
-    int dectext_ascii_30[array_len];
-    int dectext_ascii[array_len];
 
-    PreProcess_German(&plaintext);
-    for (int i = 0; i < array_len; i++)
-    {
-        plaintext_ascii[i] = plaintext[i];
-    }
+    // Perform the entire process on the ASCII arrays
+    TextToASCII(plaintext_ascii, &plaintext, &text_len);
+    ASCII_30_Add(plaintext_ascii, &text_len, plaintext_ascii_30);
+    EncryptAffine_German(plaintext_ascii_30, &a, &b, &text_len, ciphertext_ascii_30);
+    ASCII_Enc_German(ciphertext_ascii_30, &text_len, ciphertext_ascii);
+    ASCII_Dec_German(ciphertext_ascii, &text_len, ciphertext_ascii_30);
+    DecryptAffine_German(ciphertext_ascii_30, &a, &b, &text_len, dectext_ascii_30);
+    ASCII_30_Del(dectext_ascii_30, &text_len, dectext_ascii);
 
-    ASCII_30_Add(plaintext_ascii, &array_len, plaintext_ascii_30);
-    EncryptAffine_German(plaintext_ascii_30, &a, &b, &alpha_len, &array_len, ciphertext_ascii_30);
-    ASCII_Enc_German(ciphertext_ascii_30, &array_len, ciphertext_ascii);
-    ASCII_Dec_German(ciphertext_ascii, &array_len, ciphertext_ascii_dec_30);
-    DecryptAffine_German(ciphertext_ascii_dec_30, &a, &b, &alpha_len, ext_eucl, &array_len, dectext_ascii_30);
-    ASCII_30_Del(dectext_ascii_30, &array_len, dectext_ascii);
+    // Get the final strings
+    string ciphertext = ToString(ciphertext_ascii, &text_len);
+    string dectext = ToString(dectext_ascii, &text_len);
 
-    for (int i = 0; i < array_len; i++)
-    {
-        ciphertext += ciphertext_ascii[i];
-    }
-    for (int i = 0; i < array_len; i++)
-    {
-        dectext += dectext_ascii[i];
-    }
-
+    // Print substring results
     cout << plaintext.substr(300, 100) << endl;
     cout << ciphertext.substr(396, 105) << endl;
     cout << dectext.substr(300, 100) << endl;
