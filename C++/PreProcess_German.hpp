@@ -1,5 +1,3 @@
-using namespace std;
-
 void PreProcess_German(string *plaintext)
 {
     char chars[] = "()-:;.,\'!?\n ";
