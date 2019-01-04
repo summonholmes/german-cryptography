@@ -1,11 +1,15 @@
-void Shuffle(int *key_list, int *alpha_len)
+#include <ctime>
+
+void Shuffle(int *sub_key)
 {
-    int rand_position, temp;
-    for (int i = 0; i < *alpha_len; i++)
+    // C++ random_shuffle does not work for me
+    srand(time(NULL));
+    int rand_pos, tmp;
+    for (int i = 0; i < 30; i++)
     {
-        rand_position = rand() % (i + 1);
-        temp = key_list[i];
-        key_list[i] = key_list[rand_position];
-        key_list[rand_position] = temp;
+        rand_pos = rand() % (i + 1);
+        tmp = sub_key[i];
+        sub_key[i] = sub_key[rand_pos];
+        sub_key[rand_pos] = tmp;
     }
 }
